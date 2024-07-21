@@ -1,25 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as S from "./style/cards";
+import { usePathname } from "next/navigation";
 import ItemContainer from '@/app/components/itemContainer';
-// import Card1 from './card1';
-import Card1 from "../image/card/card1.png";
+import { itemList } from '@/app/constants/componentList';
+
 
 const Cards = () => {
-    // const cardList = [Card1, Card1, Card1, Card1, Card1];
-    const imgList = [Card1, Card1, Card1, Card1];
-
+    const path = usePathname().split("/")[1];
+    const items = itemList[path as keyof typeof itemList];
+    
     return (
         <S.Container>
             <S.Items>
-                {
-                    imgList.map((img, index) => {
-                        return (
-                            <>
-                                <ItemContainer key={index} image={img}/>
-                            </>
-                        )
-                    })
-                }
+                {items.imgList.map((obj, index) => {
+                    return (
+                        <ItemContainer key={index} image={obj} path={items.url[index]} />
+                    );
+                })}
             </S.Items>
         </S.Container>
     );
