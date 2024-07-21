@@ -1,0 +1,32 @@
+"use client";
+import React from 'react';
+import Cards from '../containeres/card/cards';
+import styled from 'styled-components';
+
+const Card = () => {
+    return (
+        <Container>
+            <Inner>
+                <Cards />            
+            </Inner>
+        </Container>
+    );
+};
+
+export const Container = styled.div`
+    position: relative;
+    width: 100vw;
+    height: 100%;
+`;
+
+export const Inner = styled.div`
+    position: absolute;
+    width: 70%;
+    inset: 0;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+export default Card;
