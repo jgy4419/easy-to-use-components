@@ -1,12 +1,16 @@
 "use client"
 import React, { useRef, useState } from 'react';
-import * as S from "./style/header";
+import * as S from "../style/header";
 import logo from "@/app/assets/images/logo.png";
 import Image from "next/image";
-import { IHeaderList, headerList } from '../constants/main';
-import { useRouter } from 'next/navigation';
+import { IHeaderList, headerList } from '../../constants/main';
+import HeaderListItem from './headerListItem';
 
-
+/* 
+    TODO
+    - props로 넘길 때 컴포넌트로 넘기면 안됨
+    - 구조 전체적으롱 수정해야됨.
+*/
 const Header = () => {
     const menuIcon = useRef<HTMLDivElement>(null);
     const [menuListState, setMenuListState] = useState(false);
@@ -32,7 +36,7 @@ const Header = () => {
                 </div>
             </S.MenuButton>
             <Image src={logo} width={80} alt="logo"/>
-            <S.MenuUl menuListState={menuListState}>
+            <S.MenuUl menuliststate={menuListState ? "true" : undefined}>
                 {
                     (Object.keys(headerList) as Array<keyof IHeaderList>).map((list: keyof IHeaderList, index: number) => {
                         return (
@@ -121,33 +125,6 @@ const Header = () => {
         </S.Container>
     );
 };
-
-interface IHeaderListItemPrps {
-    itemList: string[],
-    itemState: boolean
-}
-
-const HeaderListItem = ({itemList, itemState}: IHeaderListItemPrps) => {
-    const router = useRouter();
-
-    const menuItemClick = (str: string) => {
-
-    }
-
-    return (
-        <>
-            <S.MenuDetailUl itemState={itemState}>
-            {
-                itemList.map((item: string, index: number) => {
-                    return (
-                        <S.MenuDetailLi onClick={() => menuItemClick(item)} key={index}>{item}</S.MenuDetailLi>
-                    )
-                })
-            }
-            </S.MenuDetailUl>
-        </>
-    )   
-}
 
 export default Header;
 

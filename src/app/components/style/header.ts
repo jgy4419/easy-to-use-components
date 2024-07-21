@@ -19,10 +19,10 @@ export const MenuButton = styled.span`
     cursor: pointer;
 `;
 
-export const MenuUl = styled.ul<{menuListState: boolean}>`
+export const MenuUl = styled.ul<{menuliststate: boolean}>`
     position: fixed;
     z-index: 1;
-    height: 100vh;
+    height: 100%;
     top: 0;
     left: 0;
     background-color: rgb(15, 18, 20);
@@ -32,7 +32,7 @@ export const MenuUl = styled.ul<{menuListState: boolean}>`
     align-items: center;
     gap: 20px;
     transition: .1s;
-    transform: ${props => props.menuListState
+    transform: ${props => props.menuliststate
         ? "translat₩eX(0%)"
         : "translateX(-100%)"
     };
