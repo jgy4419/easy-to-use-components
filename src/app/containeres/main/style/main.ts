@@ -18,6 +18,5 @@ export const Inner = styled.div`
 
 export const Items = styled.ul`
     width: 100%;
-    height: 80%;
     background-color: #eee;
 `;

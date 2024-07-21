@@ -7,7 +7,7 @@ const Main = () => {
         <>
             <S.Container>
                 <S.Inner>
-                    <Cards />
+                    
                 </S.Inner>
             </S.Container>
         </>

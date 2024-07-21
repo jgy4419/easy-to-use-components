@@ -13,7 +13,7 @@ export const HoverContainer = styled.div`
 
 export const HoverInner = styled.div`
     width: 100%;
-    height: 100%;
+    height: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,9 +37,9 @@ export const Button = styled.button`
 
 export const Container = styled.div`
     position: relative;
-    width: 400px;
-    height: 250px;
-    background-color: #fff;
+    width: 500px;
+    height: 400px;
+    background-color: rgb(15,18,20);
     overflow: hidden;
     border-radius: 10px;
     margin-top: 50px;
@@ -48,4 +48,28 @@ export const Container = styled.div`
             transform: translateY(0%);
         }
     }
+`;
+
+export const Inner = styled.div`
+    position: relative;
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+`;
+
+export const StarCount = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+`;
+
+export const Count = styled.span`
+    font-size: 30px;
+`;
+
+export const UploadTime = styled.p`
+    font-size: 18px;
 `;
