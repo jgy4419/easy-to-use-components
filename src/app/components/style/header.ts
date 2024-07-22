@@ -6,7 +6,7 @@ export const Container = styled.header`
     gap: 30px;
     align-items: center;
     width: 100vw;
-    height: 80px;
+    height: 120px;
     background-color: rgb(15, 18, 20);
     padding: 20px;
     box-sizing: border-box;

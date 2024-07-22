@@ -4,11 +4,11 @@ import styled from 'styled-components';
 import { usePathname } from "next/navigation";
 import dynamic from 'next/dynamic';
 
-interface ICardDetail {
+interface IItemDetail {
     componentName: string;
 }
 
-const CardDetail = () => {
+const ItemDetail = () => {
     const [Component, setComponent] = useState<any>(null);
     const param = usePathname();
     const regex = /[^/]+$/;
@@ -54,4 +54,4 @@ const Inner = styled.div`
     border: 1px solid #fff;
 `;
 
-export default CardDetail;
+export default ItemDetail;
