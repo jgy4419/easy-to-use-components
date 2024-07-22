@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import * as S from "./style/cards";
+import * as S from "./style/items";
 import { usePathname } from "next/navigation";
 import ItemContainer from '@/app/components/itemContainer';
 import { itemList } from '@/app/constants/componentList';
 
 
-const Cards = () => {
+const Items = () => {
     const path = usePathname().split("/")[1];
     const items = itemList[path as keyof typeof itemList];
     
@@ -22,4 +22,4 @@ const Cards = () => {
     );
 };
 
-export default Cards;
+export default Items;

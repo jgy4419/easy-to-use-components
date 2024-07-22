@@ -1,13 +1,13 @@
 "use client";
 import React from 'react';
-import Cards from '../containeres/card/cards';
+import Items from '../containeres/items/items';
 import styled from 'styled-components';
 
 const Card = () => {
     return (
         <Container>
             <Inner>
-                <Cards />            
+                <Items />            
             </Inner>
         </Container>
     );

@@ -35,7 +35,7 @@ const Header = () => {
                     <span></span>
                 </div>
             </S.MenuButton>
-            <Image src={logo} width={80} alt="logo"/>
+            <Image className='logoImg' src={logo} alt="logo" width={80} height={80}/>
             <S.MenuUl menuliststate={menuListState ? "true" : undefined}>
                 {
                     (Object.keys(headerList) as Array<keyof IHeaderList>).map((list: keyof IHeaderList, index: number) => {
