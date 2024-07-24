@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 
 const Main = () => {
     const route = useRouter();
+    
     return (
         <>
             <S.Container>

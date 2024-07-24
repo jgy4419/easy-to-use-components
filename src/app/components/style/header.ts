@@ -22,8 +22,9 @@ export const MenuButton = styled.span`
 export const MenuUl = styled.ul<{menuliststate: boolean}>`
     position: fixed;
     z-index: 1;
+    width: 200px;
     height: 100%;
-    top: 0;
+    top: -10px;
     left: 0;
     background-color: rgb(15, 18, 20);
     display: flex;
@@ -45,6 +46,7 @@ export const MenuDetailUl = styled.ul<{itemState: boolean}>`
     // left: 100%;
     font-size: 16px;
     display: flex;
+    font-size: 20px;
     flex-direction: column;
     gap: 20px;
     opacity: 0;
@@ -52,11 +54,11 @@ export const MenuDetailUl = styled.ul<{itemState: boolean}>`
 `;
 
 export const MenuLi = styled.li`
-    width: 80%;
+    width: 120px;
     position: relative;
     text-align: center;
     border-radius: 20px;
-    font-size: 20px;
+    font-size: 25px;
     cursor: pointer;
     padding: 20px;
     transition: .5s;
