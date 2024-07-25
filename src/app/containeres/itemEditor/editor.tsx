@@ -5,6 +5,8 @@ import dynamic from 'next/dynamic';
 import * as S from "./style/editor";
 import Image from "next/image";
 import star from "@/app/assets/images/Star.png";
+import { inputTextChangeHandler } from "@/app/util/inputTextChange";
+import { inputFileChangeHandler} from "@/app/util/inputFileChange";
 
 const Editor = () => {
     const [Component, setComponent] = useState<any>(null);
@@ -27,19 +29,6 @@ const Editor = () => {
     }, [param]);
 
     if (!Component) return <div>Loading...</div>;
-
-    const inputTextChangeHandler = (event: ChangeEvent, className: string) => {
-        const target: any = event.target;
-        const changeDom: HTMLElement | null = document.querySelector(`[class*="${className}"]`);
-
-        if (changeDom) {
-            changeDom.innerText = target.value;
-        }
-    }
-
-    const inputFileChangeHandler = (event: ChangeEvent, className: string) => {
-        // 이미지 변경은 base64로 변환 -> background-image 또는 file input 수정하는 함수 따로 만들기.
-    }
 
     return (
         <S.Container>
@@ -64,7 +53,6 @@ const Editor = () => {
                         <S.Title onChange={(event) => inputTextChangeHandler(event, "MainText")} placeholder='Some title' type="text" />
                         <S.Description placeholder="some description about this card and it's ourpose." />
                     </S.EditContent>
-
                 </S.Content>
             </S.Inner>
         </S.Container>
