@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const Card2Container = styled.div`
     position: relative;
-    width: 100vw;
-    height: 50vh;
+    //width: 100vw;
+    //height: 50vh;
 `;
 
 export const Card2Inner = styled.div`
