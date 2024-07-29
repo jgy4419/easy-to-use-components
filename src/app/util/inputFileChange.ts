@@ -1,6 +1,6 @@
 import {ChangeEvent} from "react";
 
-const inputFileChangeHandler = async (event: ChangeEvent, className: string) => {
+const inputFileChangeHandler = async (event: ChangeEvent, className: string, type: string) => {
     // 이미지 변경은 base64로 변환 -> background-image 또는 file input 수정하는 함수 따로 만들기.
     const file = event.target.files[0]; // 선택된 파일
     if (file) {
@@ -10,7 +10,11 @@ const inputFileChangeHandler = async (event: ChangeEvent, className: string) => 
             return data;
         });
 
-        setBackgroundImage(imageData, className);
+        console.log("className", className)
+
+        type === "file"
+            ? setBackgroundImage(imageData, className)
+            : setImage(imageData, className);
     }
 }
 
@@ -33,6 +37,13 @@ const setBackgroundImage = (img: unknown, className: string) => {
 
     if(element)
         element.style.backgroundImage = `url(${img})`;
+}
+
+const setImage = (img: HTMLImageElement, className: string) => {
+    const element: HTMLImageElement | null = document.querySelector(`[class*="${className}"]`);
+
+    if(element) element.src = img
+
 }
 
 export { inputFileChangeHandler };
