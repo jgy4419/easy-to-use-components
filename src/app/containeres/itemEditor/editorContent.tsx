@@ -1,17 +1,12 @@
 import React, {useEffect} from 'react';
 import * as S from "@/app/containeres/itemEditor/style/editor";
-import TextEdit from "@/app/containeres/itemEditor/textEdit";
-import FileEdit from "@/app/containeres/itemEditor/fileEdit";
-import DescriptionEdit from "@/app/containeres/itemEditor/descriptionEdit";
+import TextEdit from "@/app/containeres/itemEditor/input/textEdit";
+import FileEdit from "@/app/containeres/itemEditor/input/fileEdit";
+import DescriptionEdit from "@/app/containeres/itemEditor/input/descriptionEdit";
 import Content from "@/app/containeres/itemEditor/Content";
 
 const EditorContent = ({ componentData }: any) => {
-    // const { classNames, type } = componentData;
     const [classNames, type] = [componentData.className, componentData.type];
-
-    useEffect(() => {
-        console.log("componentData", componentData);
-    }, []);
 
     return (
         <S.EditContent>

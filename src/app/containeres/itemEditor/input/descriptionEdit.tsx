@@ -1,5 +1,5 @@
 import React from 'react';
-import * as S from "@/app/containeres/itemEditor/style/editor";
+import * as S from "./style/description"
 import {inputTextChangeHandler} from "@/app/util/inputTextChange";
 
 const DescriptionEdit = ({ name }: { name: string}) => {

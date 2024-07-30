@@ -1,5 +1,5 @@
 import React from 'react';
-import * as S from "@/app/containeres/itemEditor/style/editor";
+import * as S from "./style/fileEdit";
 import {inputFileChangeHandler} from "@/app/util/inputFileChange";
 
 const FileEdit = ({ name, type }: {name: string, type: string}) => {

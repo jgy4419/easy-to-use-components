@@ -1,5 +1,5 @@
 import React from 'react';
-import * as S from "@/app/containeres/itemEditor/style/editor";
+import * as S from "./style/textEdit";
 import {inputTextChangeHandler} from "@/app/util/inputTextChange";
 
 /* 필요한 데이터

@@ -19,6 +19,33 @@ export const Inner = styled.div`
 
 export const Item = styled.div`
     width: 50%;
+    height: 35%;
+    display: flex;
+    flex-direction: column;
+    //border: 1px solid #fff;
+`;
+
+export const ComponentWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+`;
+
+export const CreateButton = styled.button`
+    background-color: #1b6ca2;
+    color: #fff;
+    height: 100px;
+    border-radius: 10px;
+    border: 3px solid #1b6ca2;
+    font-size: 25px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .3s;
+    &:hover {
+        background-color: transparent;
+        color: #1b6ca2;
+    }
 `;
 
 export const Content = styled.div` 
@@ -60,37 +87,4 @@ export const EditContent = styled.div`
     flex-direction: column;
     gap: 20px;
     margin-top: 50px;
-`;
-
-export const File = styled.input`
-    display: none;
-`;
-
-export const FileStyle = styled.label`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 400px;
-    height: 70px;
-    background-color: #fff;
-    border-radius: 10px;
-    color: #333;
-`;
-
-export const Title = styled.input`
-    width: 400px;
-    height: 70px;
-    border-radius: 10px;
-    font-size: 16px;
-    padding: 20px;
-    box-sizing: border-box;
-`;
-
-export const Description = styled.textarea`
-    width: 400px;
-    height: 120px;
-    border-radius: 10px;
-    font-size: 16px;
-    padding: 20px;
-    box-sizing: border-box;
 `;

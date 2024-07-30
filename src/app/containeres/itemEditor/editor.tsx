@@ -1,24 +1,40 @@
 "use client";
 import React, { ChangeEvent, useEffect, useState } from 'react';
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import dynamic from 'next/dynamic';
+import EditorContent from "@/app/containeres/itemEditor/editorContent";
 import * as S from "./style/editor";
 import Image from "next/image";
 import star from "@/app/assets/images/Star.png";
-import { inputTextChangeHandler } from "@/app/util/inputTextChange";
-import { inputFileChangeHandler} from "@/app/util/inputFileChange";
+import { itemList } from "@/app/constants/componentList";
+
 
 const Editor = () => {
     const [Component, setComponent] = useState<any>(null);
+    const [data, setData] = useState({});
     const param = usePathname();
+    const route = useRouter();
+
     const regex = /[^/]+$/;
     const match = param.match(regex);
 
+    const itemFilter = () => {
+        if(match && match.input) {
+            const pathArr = match.input.split("/").filter(Boolean);
+            const [category, itemName] = pathArr;
+            const mainCategory = itemList[category as keyof typeof itemList];
+
+            setData(mainCategory[itemName as keyof typeof mainCategory]);
+        }
+    }
+
     useEffect(() => {
         const loadComponent = async () => {
+            console.log("match!", match);
             try {
-                const ImportedComponent = dynamic(() => import(`@/app/containeres/card/${match && match[0]}`));
+                const ImportedComponent = dynamic(() => import(`@/app/containeres${match && match.input}`));
                 setComponent(() => ImportedComponent);
+                itemFilter();
             } catch (error) {
                 console.error(`Error loading component`, error);
                 setComponent(() => <div>Error loading component</div>);
@@ -34,10 +50,13 @@ const Editor = () => {
         <S.Container>
             <S.Inner>
                 <S.Item>
-                    <Component />
+                    <S.ComponentWrapper>
+                        <Component />
+                    </S.ComponentWrapper>
+                    <S.CreateButton onClick={() => route.push(`${param}/code`)}>Create!</S.CreateButton>
                 </S.Item>
                 <S.Content>
-                    <S.ItemName>Card1</S.ItemName>
+                    <S.ItemName>{data.url}</S.ItemName>
                     <S.ItemInformation>
                         {/* TODO : 컴포넌트로 빼놓기 props로 width, height 받아오기. */}
                         <S.Star>
@@ -46,13 +65,8 @@ const Editor = () => {
                         </S.Star>
                         <S.Date>2024.07.24</S.Date>
                     </S.ItemInformation>
-                    <S.EditContent>
-                        {/* 후에 배열로 받아올 받아 뿌려줄 예정 컴포넌트로 빼기 */}
-                        <S.File type="file" id="imgFile" onChange={(event) => inputFileChangeHandler(event, "Card1Content")} />
-                        <S.FileStyle htmlFor="imgFile">파일 적용하기</S.FileStyle> 
-                        <S.Title onChange={(event) => inputTextChangeHandler(event, "MainText")} placeholder='Some title' type="text" />
-                        <S.Description placeholder="some description about this card and it's ourpose." />
-                    </S.EditContent>
+                    {/* 수정할 수 있는 데이터들 적용하는 곳. */}
+                    <EditorContent componentData={data}/>
                 </S.Content>
             </S.Inner>
         </S.Container>
