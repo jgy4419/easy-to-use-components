@@ -7,6 +7,8 @@ import * as S from "./style/editor";
 import Image from "next/image";
 import star from "@/app/assets/images/Star.png";
 import { itemList } from "@/app/constants/componentList";
+import Items from "@/app/containeres/items/items";
+import CodeContainer from "@/app/containeres/itemEditor/code/codeContainer";
 
 
 const Editor = () => {
@@ -26,6 +28,11 @@ const Editor = () => {
 
             setData(mainCategory[itemName as keyof typeof mainCategory]);
         }
+    }
+
+    // 컴포넌트 코드를 제공해주는 박스 생성.
+    const createCodeBox = () => {
+        alert("!");
     }
 
     useEffect(() => {
@@ -53,7 +60,7 @@ const Editor = () => {
                     <S.ComponentWrapper>
                         <Component />
                     </S.ComponentWrapper>
-                    <S.CreateButton onClick={() => route.push(`${param}/code`)}>Create!</S.CreateButton>
+                    <S.CreateButton onClick={createCodeBox}>Create!</S.CreateButton>
                 </S.Item>
                 <S.Content>
                     <S.ItemName>{data.url}</S.ItemName>
@@ -67,8 +74,11 @@ const Editor = () => {
                     </S.ItemInformation>
                     {/* 수정할 수 있는 데이터들 적용하는 곳. */}
                     <EditorContent componentData={data}/>
+                    <S.CreateButton onClick={() => route.push(`${param}/code`)}>Create!</S.CreateButton>
                 </S.Content>
             </S.Inner>
+            <CodeContainer />
+            <Items />
         </S.Container>
     );
 };
