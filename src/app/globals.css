@@ -31,3 +31,19 @@ a {
   border-radius: 50%;
   object-fit: cover;
 }
+
+.defaultButton {
+  background-color: #1b6ca2;
+  color: #fff;
+  transform: translateY(30px);
+  border-radius: 10px;
+  border: 3px solid #1b6ca2;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .3s;
+  &:hover {
+    background-color: transparent;
+    color: #1b6ca2;
+  }
+}

@@ -60,7 +60,7 @@ const Editor = () => {
                     <S.ComponentWrapper>
                         <Component />
                     </S.ComponentWrapper>
-                    <S.CreateButton onClick={createCodeBox}>Create!</S.CreateButton>
+                    <S.CreateButton className="defaultButton" onClick={createCodeBox}>Create!</S.CreateButton>
                 </S.Item>
                 <S.Content>
                     <S.ItemName>{data.url}</S.ItemName>
@@ -74,7 +74,7 @@ const Editor = () => {
                     </S.ItemInformation>
                     {/* 수정할 수 있는 데이터들 적용하는 곳. */}
                     <EditorContent componentData={data}/>
-                    <S.CreateButton onClick={() => route.push(`${param}/code`)}>Create!</S.CreateButton>
+                    <S.CreateButton className="defaultButton" onClick={() => route.push(`${param}/code`)}>Create!</S.CreateButton>
                 </S.Content>
             </S.Inner>
             <CodeContainer />
