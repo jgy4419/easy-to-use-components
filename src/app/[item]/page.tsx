@@ -13,13 +13,13 @@ const Card = () => {
     );
 };
 
-export const Container = styled.div`
+const Container = styled.div`
     position: relative;
     width: 100vw;
-    height: 100%;
+    height: 100%;   
 `;
 
-export const Inner = styled.div`
+const Inner = styled.div`
     position: absolute;
     width: 70%;
     inset: 0;

@@ -5,6 +5,9 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import { itemList } from "@/app/constants/componentList";
+import Prism from 'prismjs';
+import 'prismjs/components/prism-jsx.min';
+import {useEffect, useRef} from "react";
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -37,6 +40,7 @@ function a11yProps(index: number) {
 
 export default function CodeContainer() {
     const [value, setValue] = React.useState(0);
+    const codeElement = useRef(null);
     // TODO :  Card, card1 까지는 props나 redux 사용해서 가져오기
     const { Card } = itemList;
     const cardObjValue: {jsx: string, style: string} = Card.card1.code;
@@ -45,18 +49,32 @@ export default function CodeContainer() {
         setValue(newValue);
     };
 
+    const copyClickHandler = () => {
+        const codeElem = codeElement.current;
+
+        // text 복사
+        codeElem?.textContent &&
+            navigator.clipboard.writeText(codeElem.textContent).then(function() {
+                alert("복사되었습니다!");
+            }).catch(function(error) {
+                console.error("복사도중 에러가 발생했습니다.: ", error);
+            });
+    }
+
+    useEffect(() => {
+        Prism.highlightAll();
+    }, [value]);
+
     return (
         <S.Container>
             <S.Inner>
                 <Box sx={{ width: '100%', color: "#fff" }}>
                     <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                            {/*<Tab label="123" {...a11yProps(0)} sx={{color: "#fff", fontSize: "25px"}} />*/}
-                            {/*<Tab label="345" {...a11yProps(1)} sx={{color: "#fff", fontSize: "25px"}} />*/}
                             {
                                 Object.keys(Card.card1.code).map((key, index) => {
                                     return (
-                                        <Tab key={index} label={key} {...a11yProps(index)} sx={{color: "#fff", fontSize: "25px"}} />
+                                        <Tab key={index} label={key} {...a11yProps(index)} sx={{color: "#fff", fontSize: "20px"}} />
                                     )
                                 })
                             }
@@ -68,15 +86,16 @@ export default function CodeContainer() {
                             console.log('value', value);
                             return (
                                 <CustomTabPanel value={value} index={index} key={index}>
-                                    <pre>
-                                        {values}
-                                    </pre>
+                                    <S.Code>
+                                        <code ref={codeElement} className="language-jsx">{values}</code>
+                                    </S.Code>
                                 </CustomTabPanel>
                             )
                         })
                     }
                 </Box>
             </S.Inner>
+            <S.CopyButton onClick={copyClickHandler} className="defaultButton">Copy</S.CopyButton>
         </S.Container>
     );
 }
