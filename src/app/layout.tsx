@@ -5,6 +5,8 @@ import Header from "./components/header/header";
 import Footer from "./components/footer";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
+import "prismjs/themes/prism-tomorrow.css";
+
 
 config.autoAddCss = false;
 
@@ -20,11 +22,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="container">
-        <Header />
-        { children }
-        <Footer />
-      </body>
+    <body className="container">
+      <Header/>
+      {children}
+      <Footer/>
+    </body>
     </html>
   );
 }
