@@ -37,8 +37,9 @@ export const Button = styled.button`
 
 export const Container = styled.div`
     position: relative;
-    width: 500px;
-    height: 400px;
+    max-width: 500px;
+    width: 35%;
+    //height: 20%;
     background-color: rgb(15,18,20);
     overflow: hidden;
     border-radius: 10px;
@@ -47,6 +48,11 @@ export const Container = styled.div`
         ${HoverContainer} {
             transform: translateY(0%);
         }
+    }
+    @media (max-width: 1200px) {
+        width: 100%;
+    }
+            
     }
 `;
 

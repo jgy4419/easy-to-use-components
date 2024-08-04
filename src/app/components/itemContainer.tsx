@@ -1,20 +1,30 @@
 import React from 'react';
 import * as S from "./style/itemContainer";
-import Image from "next/image";
+import Image, {StaticImageData} from "next/image";
 import NonStar from "@/app/assets/images/NonStar.png";
 import Star from "@/app/assets/images/Star.png";
 import { useRouter, usePathname } from 'next/navigation';
 
-const ItemContainer = ({ image, path }: any) => {
+interface IItem {
+    url: string,
+    img: StaticImageData,
+    className: {
+        title: string,
+        description: string,
+        backImage: string
+    }
+}
+
+const ItemContainer = ({ obj }: { obj: IItem }) => {
     const param = usePathname();
     const router = useRouter();
 
     const itemClickHandler = () => {
-        router.push(param + "/" + path);
+        router.push(param + "/" + obj.url);
     }
     return (
         <S.Container onClick={() => itemClickHandler()}>
-            <Image className='itemImage' src={image} alt="이미지" width={500} height={280}/>
+            <Image className='itemImage' src={obj.img} alt="이미지" width={500} height={280}/>
             <S.HoverContainer>
                 <S.HoverInner>
                     <S.Button>Create</S.Button>

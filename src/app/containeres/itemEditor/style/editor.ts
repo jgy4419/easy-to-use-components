@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Container = styled.div`
     position: relative;
     width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -25,23 +24,10 @@ export const ComponentWrapper = styled.div`
 `;
 
 export const CreateButton = styled.button`
-    background-color: #1b6ca2;
-    color: #fff;
     width: 30%;
     min-width: 300px;
-    height: 100px;
-    margin: auto;
-    transform: translateY(30px);
-    border-radius: 10px;
-    border: 3px solid #1b6ca2;
-    font-size: 25px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: .3s;
-    &:hover {
-        background-color: transparent;
-        color: #1b6ca2;
-    }
+    height: 80px;
+    margin: 100px auto;
     &:nth-child(4) {
         display: none;
     }
@@ -118,6 +104,8 @@ export const Inner = styled.div`
         }
     }
     @media (max-width: 1100px) {
-        margin-top: 50%;
+        ${Content} {
+            margin-top: 30px;
+        }
     }
 `;

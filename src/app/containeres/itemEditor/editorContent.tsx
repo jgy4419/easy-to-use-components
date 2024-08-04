@@ -13,7 +13,6 @@ const EditorContent = ({ componentData }: any) => {
             {
                 Object.keys(type).map((typeKey, index) => {
                     const typeValue = type[typeKey];
-                    console.log("typeValue", typeValue);
                     return (
                         <>
                             {typeValue === "file" && <FileEdit name={classNames.backImage} type={typeValue}/>}
