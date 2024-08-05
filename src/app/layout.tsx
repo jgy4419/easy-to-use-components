@@ -6,7 +6,7 @@ import Footer from "./components/footer";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "prismjs/themes/prism-tomorrow.css";
-
+import ClientProvider from "@/app/components/ClientProvider";
 
 config.autoAddCss = false;
 
@@ -24,7 +24,9 @@ export default function RootLayout({
     <html lang="en">
     <body className="container">
       <Header/>
-      {children}
+      <ClientProvider>
+        {children}
+      </ClientProvider>
       <Footer/>
     </body>
     </html>
