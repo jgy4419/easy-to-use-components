@@ -2,7 +2,6 @@ import React from 'react';
 import * as S from "./style/itemContainer";
 import Image, {StaticImageData} from "next/image";
 import NonStar from "@/app/assets/images/NonStar.png";
-import Star from "@/app/assets/images/Star.png";
 import { useRouter, usePathname } from 'next/navigation';
 
 interface IItem {
