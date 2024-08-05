@@ -1,5 +1,6 @@
 'use client';
 import * as React from 'react';
+import {useEffect, useRef} from "react";
 import * as S from "./style/codeContainer";
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -7,7 +8,7 @@ import Box from '@mui/material/Box';
 import { itemList } from "@/app/constants/componentList";
 import Prism from 'prismjs';
 import 'prismjs/components/prism-jsx.min';
-import {useEffect, useRef} from "react";
+import {usePathname} from "next/navigation";
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -41,9 +42,14 @@ function a11yProps(index: number) {
 export default function CodeContainer() {
     const [value, setValue] = React.useState(0);
     const codeElement = useRef(null);
+    const pathNames = usePathname().split("/");
+
+
     // TODO :  Card, card1 까지는 props나 redux 사용해서 가져오기
-    const { Card } = itemList;
-    const cardObjValue: {jsx: string, style: string} = Card.card1.code;
+    const main = itemList[pathNames[1] as keyof typeof itemList];
+    // const detail = itemList[pathNames[2] as keyof typeof itemList];
+    const detail = main[pathNames[2] as keyof typeof main];
+    const codeObj = detail["code" as keyof typeof detail];
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
@@ -72,7 +78,7 @@ export default function CodeContainer() {
                     <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
                             {
-                                Object.keys(Card.card1.code).map((key, index) => {
+                                Object.keys(codeObj).map((key, index) => {
                                     return (
                                         <Tab key={index} label={key} {...a11yProps(index)} sx={{color: "#fff", fontSize: "20px"}} />
                                     )
@@ -81,9 +87,9 @@ export default function CodeContainer() {
                         </Tabs>
                     </Box>
                     {
-                        Object.keys(Card.card1.code).map((key, index) => {
-                            const values: string = cardObjValue[key as keyof {jsx: string, style: string}];
-                            console.log('value', value);
+                        Object.keys(codeObj).map((key, index) => {
+                            const values: string = codeObj[key as keyof typeof codeObj];
+
                             return (
                                 <CustomTabPanel value={value} index={index} key={index}>
                                     <S.Code>
