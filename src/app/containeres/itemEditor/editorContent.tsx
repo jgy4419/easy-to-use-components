@@ -13,14 +13,15 @@ const EditorContent = ({ componentData }: any) => {
             {
                 Object.keys(type).map((typeKey, index) => {
                     const typeValue = type[typeKey];
+
                     return (
-                        <>
+                        <div key={index}>
                             {typeValue === "file" && <FileEdit name={classNames.backImage} type={typeValue}/>}
                             {typeValue === "img" && <FileEdit name={classNames.image} type={typeValue}/>}
                             {typeValue === "text" && <TextEdit name={classNames.title}/>}
                             {typeValue === "subTitle" && <TextEdit name={classNames.subTitle}/>}
                             {typeValue === "description" && <DescriptionEdit name={classNames.description}/>}
-                        </>
+                        </div>
                     )
                 })
             }
