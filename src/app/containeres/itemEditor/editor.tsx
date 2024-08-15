@@ -16,7 +16,7 @@ const Editor = () => {
     const [data, setData] = useState({});
     const param = usePathname();
     const { codeState } = useSelector((state: RootState) => state.editor);
-    const diepatch = useDispatch();
+    const dispatch = useDispatch();
 
     const regex = /[^/]+$/;
     const match = param.match(regex);
@@ -44,7 +44,7 @@ const Editor = () => {
             }
         };
 
-        codeState && diepatch(codeStateChange(false));
+        codeState && dispatch(codeStateChange(false));
 
         loadComponent();
     }, [param]);
@@ -59,7 +59,7 @@ const Editor = () => {
                     <S.ComponentWrapper>
                         <Component />
                     </S.ComponentWrapper>
-                    <S.CreateButton className="defaultButton">Create!</S.CreateButton>
+                    {/*<S.CreateButton className="defaultButton">Create!</S.CreateButton>*/}
                 </S.Item>
                 {
                     codeState
