@@ -8,7 +8,6 @@ export const Container = styled.header`
     width: 100vw;
     height: 120px;
     background-color: rgb(15, 18, 20);
-    padding: 20px;
     box-sizing: border-box;
     cursor: pointer;
 `;
@@ -19,38 +18,50 @@ export const MenuButton = styled.span`
     cursor: pointer;
 `;
 
-export const MenuUl = styled.ul<{menuliststate: boolean}>`
+export const MenuUl = styled.ul<{menuulliststate: string | undefined}>`
     position: fixed;
-    z-index: 1;
+    z-index: 11;
     width: 200px;
     height: 100%;
     top: -10px;
     left: 0;
-    background-color: rgb(15, 18, 20);
+    margin: 0;
+    background: rgb(27 29 30);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
     transition: .1s;
-    transform: ${props => props.menuliststate
-        ? "translat₩eX(0%)"
+    transform: ${props => props.menuulliststate
+        ? "translateX(0%)"
         : "translateX(-100%)"
     };
 `;
 
-export const MenuDetailUl = styled.ul<{itemState: boolean}>`
+export const MenuDetailUl = styled.ul`
     position: absolute;
     transition: .3s;
     transition-delay: .3s;
     // left: 100%;
-    font-size: 16px;
+    //font-size: 16px;
     display: flex;
     font-size: 20px;
     flex-direction: column;
     gap: 20px;
     opacity: 0;
     transform: translateX(-100%);
+`;
+
+export const BlackBackground = styled.div<{menuulliststate: string | undefined}>`
+    z-index: 10;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    opacity: .5;
+    background-color: #000;
+    transform: translateX(${props => props.menuulliststate === "true" ? "0%" : "-100%"});
 `;
 
 export const MenuLi = styled.li`
@@ -74,8 +85,12 @@ export const MenuLi = styled.li`
 
 export const MenuDetailLi = styled.li`
     transition: .3s;
-    color: grey;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-sizing: border-box;
     &:hover {
-        color: #fff;
+        color: #333;
+        background: #fff;
     }
 `;

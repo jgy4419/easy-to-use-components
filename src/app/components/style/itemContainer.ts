@@ -38,8 +38,6 @@ export const Button = styled.button`
 export const Container = styled.div`
     position: relative;
     max-width: 500px;
-    width: 35%;
-    //height: 20%;
     background-color: rgb(15,18,20);
     overflow: hidden;
     border-radius: 10px;
@@ -51,8 +49,6 @@ export const Container = styled.div`
     }
     @media (max-width: 1200px) {
         width: 100%;
-    }
-            
     }
 `;
 

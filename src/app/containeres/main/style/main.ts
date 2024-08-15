@@ -12,7 +12,7 @@ const contentLoad = keyframes`
 export const Container = styled.div`
     position: relative;
     width: 100vw;
-    height: 100%;
+    height: calc(100% - 120px);
 `;
 
 export const Content = styled.div`

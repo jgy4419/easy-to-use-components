@@ -9,32 +9,27 @@ export const Container = styled.div`
 `;
 
 export const Item = styled.div`
-    width: 50%;
-    height: 35%;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    //border: 1px solid #fff;
+`;
+
+export const Content = styled.div` 
 `;
 
 export const ComponentWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    height: auto;
+    overflow: auto;
 `;
 
 export const CreateButton = styled.button`
-    width: 30%;
+    width: 100%;
     min-width: 300px;
     height: 80px;
-    margin: 100px auto;
-    &:nth-child(4) {
-        display: none;
-    }
-`;
-
-export const Content = styled.div` 
-    
 `;
 
 export const ItemName = styled.h1`
@@ -75,37 +70,11 @@ export const EditContent = styled.div`
 `;
 
 export const Inner = styled.div`
-    //position: absolute;
     width: 70%;
     height: 80%;
-    inset: 0;
-    margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    //flex-direction: column;
-    @media (max-width: 1200px) {
-        flex-direction: column;
-        margin-top: 20%;
-        ${ComponentWrapper} {
-            margin-bottom: 30%;
-        }
-        ${CreateButton} {
-            &:nth-child(2) {
-                display: none;
-            }
-            &:nth-child(4) {
-                display: block;
-                margin-top: 30px;
-                width: 100%;
-                height: 80px;   
-                font-size: 20px;
-            }
-        }
-    }
-    @media (max-width: 1100px) {
-        ${Content} {
-            margin-top: 30px;
-        }
-    }
+    margin: 5% auto;
+    flex-direction: column;
 `;
