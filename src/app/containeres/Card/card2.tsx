@@ -11,19 +11,15 @@ const Card2 = () => {
     });
     return (
         <>
-            <S.Card2Container>
-                <S.Card2Inner>
-                    <S.Item>
-                        <S.Content>
-                            <S.MainTitle>{content.mainTitle}</S.MainTitle>
-                            <S.SubTitle>{content.subTitle}</S.SubTitle>
-                            <S.Description>{content.description}</S.Description>
-                            <S.Button>{content.button}</S.Button>
-                        </S.Content>
-                        <S.ItemImage src={content.img}/>
-                    </S.Item>
-                </S.Card2Inner>
-            </S.Card2Container>
+            <S.Item>
+                <S.Content>
+                    <S.MainTitle>{content.mainTitle}</S.MainTitle>
+                    <S.SubTitle>{content.subTitle}</S.SubTitle>
+                    <S.Description>{content.description}</S.Description>
+                    <S.Button>{content.button}</S.Button>
+                </S.Content>
+                <S.ItemImage src={content.img}/>
+            </S.Item>
         </>
     );
 };

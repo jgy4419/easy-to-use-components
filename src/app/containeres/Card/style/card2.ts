@@ -55,7 +55,7 @@ export const Button = styled.button`
 `
 
 export const Item = styled.div`
-    position: absolute;
+    position: relative;
     width: 400px;
     height: 400px;
     background-color: red;
