@@ -12,6 +12,7 @@ body {
 
 ul, li {
   list-style: none;
+  padding: 0;
 }
 
 input, textarea {
@@ -37,13 +38,26 @@ a {
   color: #fff;
   transform: translateY(30px);
   border-radius: 10px;
-  border: 3px solid #1b6ca2;
-  font-size: 20px;
+  border: 2px solid #1b6ca2;
+  font-size: 16px;
   font-weight: 700;
   cursor: pointer;
   transition: .3s;
   &:hover {
     background-color: transparent;
     color: #1b6ca2;
+    font-size: 17px;
   }
+}
+
+button {
+  cursor: pointer;
+}
+
+table {
+  border: 1px solid #fff;
+}
+
+th, td {
+  padding: 15px 10px;
 }
