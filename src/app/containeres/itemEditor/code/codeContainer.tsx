@@ -9,6 +9,10 @@ import { itemList } from "@/app/constants/componentList";
 import Prism from 'prismjs';
 import 'prismjs/components/prism-jsx.min';
 import {usePathname} from "next/navigation";
+import {useDispatch, useSelector} from "react-redux";
+import { RootState } from "@/store/rootReducer";
+import {codeStateChange} from "@/store/editor";
+import Note from "./note";
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -40,10 +44,12 @@ function a11yProps(index: number) {
 }
 
 export default function CodeContainer() {
-    const [value, setValue] = React.useState(0);
-    const codeElement = useRef(null);
-    const pathNames = usePathname().split("/");
-
+    const
+        [value, setValue] = React.useState(0),
+        codeElement = useRef(null),
+        pathNames = usePathname().split("/"),
+        dispatch = useDispatch(),
+        { codeState } = useSelector((state: RootState) => state.editor);
 
     // TODO :  Card, card1 까지는 props나 redux 사용해서 가져오기
     const main = itemList[pathNames[1] as keyof typeof itemList];
@@ -80,7 +86,7 @@ export default function CodeContainer() {
                             {
                                 Object.keys(codeObj).map((key, index) => {
                                     return (
-                                        <Tab key={index} label={key} {...a11yProps(index)} sx={{color: "#fff", fontSize: "20px"}} />
+                                        <Tab key={index} label={key} {...a11yProps(index)} sx={{color: "#fff", fontSize: "16px"}} />
                                     )
                                 })
                             }
@@ -102,6 +108,12 @@ export default function CodeContainer() {
                 </Box>
             </S.Inner>
             <S.CopyButton onClick={copyClickHandler} className="defaultButton">Copy</S.CopyButton>
+            <S.BeforeButton
+                onClick={() => dispatch(codeStateChange(!codeState))}
+                className="defaultButton">
+                Before
+            </S.BeforeButton>=
+            <Note />
         </S.Container>
     );
 }
