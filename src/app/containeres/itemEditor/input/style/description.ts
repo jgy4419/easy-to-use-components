@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const Description = styled.textarea`
     width: 400px;
-    height: 160px;
-    font-size: 18px;
+    height: 120px;
+    font-size: 14px;
     padding: 20px;
     box-sizing: border-box;
     background-color: rgb(15,18,20);

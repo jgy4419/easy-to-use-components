@@ -6,10 +6,9 @@ export const Container = styled.header`
     gap: 30px;
     align-items: center;
     width: 100vw;
-    height: 120px;
+    height: 80px;
     background-color: rgb(15, 18, 20);
     box-sizing: border-box;
-    cursor: pointer;
 `;
 
 export const MenuButton = styled.span`
@@ -21,7 +20,7 @@ export const MenuButton = styled.span`
 export const MenuUl = styled.ul<{menuulliststate: string | undefined}>`
     position: fixed;
     z-index: 11;
-    width: 200px;
+    width: 150px;
     height: 100%;
     top: -10px;
     left: 0;
@@ -46,7 +45,7 @@ export const MenuDetailUl = styled.ul`
     // left: 100%;
     //font-size: 16px;
     display: flex;
-    font-size: 20px;
+    font-size: 16px;
     flex-direction: column;
     gap: 20px;
     opacity: 0;
@@ -69,15 +68,15 @@ export const MenuLi = styled.li`
     position: relative;
     text-align: center;
     border-radius: 20px;
-    font-size: 25px;
+    font-size: 20px;
     cursor: pointer;
-    padding: 20px;
+    padding: 15px 5px;
     transition: .5s;
     &:hover {
         background-color: #fff;
         color: #333;
         ${MenuDetailUl} {
-            transform: translateX(150%);
+            transform: translateX(180%);
             opacity: 1;
         }
     }

@@ -29,7 +29,7 @@ export const ComponentWrapper = styled.div`
 export const CreateButton = styled.button`
     width: 100%;
     min-width: 300px;
-    height: 80px;
+    height: 60px;
 `;
 
 export const ItemName = styled.h1`
@@ -45,7 +45,7 @@ export const Star = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 120px;
+    width: 100px;
     padding: 10px 0px;
     background-color: #fff;
     border-radius: 20px;
@@ -53,13 +53,15 @@ export const Star = styled.div`
 `;
 
 export const StarCount = styled.div`
-    font-size: 20px;
+    font-size: 16px;
     margin-top: 5px;
     font-weight: 700;
 `;
 
 export const Date = styled.div`
-    font-size: 25px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
 `;
 
 export const EditContent = styled.div`
