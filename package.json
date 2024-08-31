@@ -2,12 +2,19 @@
   "name": "easy-to-use-components",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
+  "target": "ESNext",
+  "module": "CommonJS",
+  "esModuleInterop": true,
+  "skipLibCheck": true,
+  "forceConsistentCasingInFileNames": true,
+  "outDir": "./dist",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "server": "ts-node server.ts"
+    "server": "ts-node server/server"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
@@ -33,6 +40,7 @@
     "styled-components": "^6.1.11"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/node": "^20",
     "@types/prismjs": "^1.26.4",
@@ -41,6 +49,7 @@
     "@types/sequelize": "^4.28.20",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
-    "typescript": "^5"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
   }
 }
