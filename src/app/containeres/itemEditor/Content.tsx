@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {codeStateChange} from "@/store/editor";
 
 const Content = ({ data }: {  data: any }) => {
-    const diepatch = useDispatch();
+    const dispatch = useDispatch();
     const { codeState } = useSelector((state: RootState) => state.editor);
 
     return (
@@ -18,14 +18,14 @@ const Content = ({ data }: {  data: any }) => {
             <S.ItemInformation>
                 {/* TODO : 컴포넌트로 빼놓기 props로 width, height 받아오기. */}
                 <S.Star>
-                    <Image src={star} alt="좋아요 개수" width={30}/>
+                    <Image src={star} alt="좋아요 개수" width={20}/>
                     <S.StarCount>20</S.StarCount>
                 </S.Star>
                 <S.Date>2024.07.24</S.Date>
             </S.ItemInformation>
             {/* 수정할 수 있는 데이터들 적용하는 곳. */}
             <EditorContent componentData={data}/>
-            <S.CreateButton className="defaultButton" onClick={() => diepatch(codeStateChange(!codeState))}>Create!</S.CreateButton>
+            <S.CreateButton className="defaultButton" onClick={() => dispatch(codeStateChange(!codeState))}>Create!</S.CreateButton>
         </S.Content>
     );
 };
