@@ -69,9 +69,9 @@ export const StarCount = styled.div`
 `;
 
 export const Count = styled.span`
-    font-size: 30px;
+    font-size: 20px;
 `;
 
 export const UploadTime = styled.p`
-    font-size: 18px;
+    font-size: 16px;
 `;
