@@ -44,9 +44,17 @@ export const UserName = styled(TextField)`
 `;
 
 export const SubmitButton = styled.button`
+    position: absolute;
+    bottom: -50px;
+    right: 0;
     padding: 10px 15px;
     background: #0F1214;
     border: 2px solid #fff;
     border-radius: 5px;
     color: #fff;
+    transition: .3s;
+    &:hover {
+        background-color: #fff;
+        color: #0F1214;
+    }
 `;

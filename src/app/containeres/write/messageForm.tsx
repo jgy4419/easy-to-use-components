@@ -30,8 +30,8 @@ const MessageForm = () => {
                     multiline
                     rows={4}
                 />
+                <S.SubmitButton onClick={submitHandler}>Submit</S.SubmitButton>
             </S.FormBox>
-            <S.SubmitButton onClick={submitHandler}>Submit</S.SubmitButton>
         </S.Container>
     );
 };
