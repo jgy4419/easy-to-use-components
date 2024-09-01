@@ -43,11 +43,13 @@ a {
   font-weight: 700;
   cursor: pointer;
   transition: .3s;
-  &:hover {
-    background-color: transparent;
-    color: #1b6ca2;
-    font-size: 17px;
-  }
+  padding: 10px 30px;
+}
+
+.defaultButton:hover {
+  background-color: transparent;
+  color: #1b6ca2;
+  border: 2px solid #1b6ca2;
 }
 
 button {

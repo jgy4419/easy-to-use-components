@@ -1,3 +1,5 @@
+"use client";
+
 import React, {useEffect, useState} from 'react';
 import * as S from "./style/list";
 import { tableHead } from "@/app/constants/caution";
@@ -46,7 +48,10 @@ const List = () => {
                             {
                                 testData.map((data, index) => {
                                     return (
-                                        <ListItem key={data.idx} data={data} />
+                                        <ListItem
+                                            key={data.idx} 
+                                            data={data}
+                                        />
                                     )
                                 })
                             }
