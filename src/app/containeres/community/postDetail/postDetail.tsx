@@ -1,28 +1,59 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import * as S from "./style/postDetail";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
+import { ICommunity } from '../type/type';
 
 const PostDetail = () => {
-    const testContent = {
-        title: "제목입니다.",
-        name: "닉네임",
-        date: "20240901",
-        content: "문의내용~"
-    };
     const router = useRouter();
+    const path = usePathname();
+
+    const [communityData, setCommunityData] = useState<ICommunity | null>(null);
+
+    useEffect(() => {
+        if(!communityData)
+            getCommunityData();
+    }, [communityData]);
+
+    const getCommunityData = async () => {
+        const match = path.match(/\/(\d+)$/);
+        const idx = match ? match[1] : -1;
+        
+        try {
+            const response = await fetch(`/api/community/detail?idx=${idx}`);
+
+            if(!response.ok) {
+                throw new Error("게시글들을 불러오는데 실패했습니다.");
+                
+            }
+            const data = await response.json();
+
+            console.log(data);
+            setCommunityData(data[0]);
+
+        } catch(err) {
+            console.log("데이터를 불러오는데 실패했습니다." + err);
+        }
+    }
 
     return (
         <S.Container>
             <S.Content>
-                <S.ContentHeader>
-                    <S.ContentTitle>{testContent.title}</S.ContentTitle>
+                {
+                    communityData
+                        ? <>
+                        <S.ContentHeader>
+                    <S.ContentTitle>{communityData.title}</S.ContentTitle>
                     <S.ContentSubInfo>
-                        <S.ContentName>{testContent.name}</S.ContentName>
-                        <S.ContentDate>{testContent.date}</S.ContentDate>
+                        <S.ContentName>{communityData.name}</S.ContentName>
+                        <S.ContentDate>{communityData.date}</S.ContentDate>
                     </S.ContentSubInfo>
                 </S.ContentHeader>
                 <S.Line />
-                <S.ContentBody>{testContent.content}</S.ContentBody>
+                <S.ContentBody>{communityData.content}</S.ContentBody>
+
+                        </>
+                        : <></>
+                }
                 <S.MoveButtonContainer>
                     <S.ListButton 
                         onClick={() => router.back()} 
