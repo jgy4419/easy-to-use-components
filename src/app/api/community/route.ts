@@ -1,6 +1,5 @@
 // app/api/getData/route.ts
 import { NextResponse } from 'next/server';
-import { useRouter } from "next/navigation";
 import connection from '@/../lib/db'; // 데이터베이스 연결 설정을 가져옵니다.
 
 export async function GET() {
