@@ -4,12 +4,13 @@ import {TextField} from "@mui/material";
 export const Container = styled.div`
 `;
 
-export const FormBox = styled.section`
+export const FormBox = styled.form`
     position: relative;
     width: 80%;
     display: flex;
+    gap: 10px;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     margin: auto;
 `;
 
@@ -57,4 +58,16 @@ export const SubmitButton = styled.button`
         background-color: #fff;
         color: #0F1214;
     }
+`;
+
+export const TitleInput = styled.input`
+    position: relative;
+    width: 250px;
+    padding: 15px;
+    top: -10px;
+    background-color: rgb(15,18,20);
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    // text-align: left;
 `;
