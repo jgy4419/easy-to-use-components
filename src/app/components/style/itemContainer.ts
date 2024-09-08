@@ -73,5 +73,5 @@ export const Count = styled.span`
 `;
 
 export const UploadTime = styled.p`
-    font-size: 16px;
+    font-size: 18px;
 `;
