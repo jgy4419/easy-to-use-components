@@ -6,7 +6,7 @@ import Button1 from "../containeres/image/button/button1.png";
 import Button2 from "../containeres/image/button/button2.png";
 import Button3 from "../containeres/image/button/button3.png";
 
-
+// 이미지 서버 
 
 // 나중에 DB에 추가
 export const itemList = {

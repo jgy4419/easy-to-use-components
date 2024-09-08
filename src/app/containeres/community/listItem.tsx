@@ -2,8 +2,9 @@
 import React, {useEffect, useState} from 'react';
 import { useRouter } from "next/navigation";
 import * as S from "@/app/containeres/community/style/list";
+import { ICommunity } from './type/type';
 
-const ListItem = ({data}: {idx: number, title: string, date: string}) => {
+const ListItem = ({data}: { data: ICommunity }) => {
     const router = useRouter();
     return (
         <>

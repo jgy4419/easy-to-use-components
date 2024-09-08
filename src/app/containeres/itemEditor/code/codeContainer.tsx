@@ -7,12 +7,11 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import { itemList } from "@/app/constants/componentList";
 import Prism from 'prismjs';
-import 'prismjs/components/prism-jsx.min';
 import {usePathname} from "next/navigation";
 import {useDispatch, useSelector} from "react-redux";
 import { RootState } from "@/store/rootReducer";
 import {codeStateChange} from "@/store/editor";
-import Note from "./note";
+import 'prismjs/components/prism-jsx.min';
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -112,8 +111,7 @@ export default function CodeContainer() {
                 onClick={() => dispatch(codeStateChange(!codeState))}
                 className="defaultButton">
                 Before
-            </S.BeforeButton>=
-            <Note />
+            </S.BeforeButton>
         </S.Container>
     );
 }
