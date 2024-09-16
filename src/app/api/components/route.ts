@@ -3,12 +3,13 @@ import connection from '@/../lib/db'; // 데이터베이스 연결 설정을 가
 
 export async function GET(req: { url: string | URL }) {
     const { searchParams } = new URL(req.url);
-
+    const url = searchParams.get("componentName");
     try {
         const [rows] = await connection.query(
             `
                 SELECT * 
                 FROM Components
+                WHERE category = ${url}
             ` 
         );
         console.log(rows);
