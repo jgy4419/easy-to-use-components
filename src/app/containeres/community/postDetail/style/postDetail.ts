@@ -65,3 +65,14 @@ export const ListButton = styled.button`
 
 export const CreateButton = styled.button`
 `;
+
+export const DeleteButton = styled.button`
+    background-color: red;
+    border: 0;
+    border: 2px solid red;
+    &:hover {
+        background-color: transparent;
+        border: 2px solid red;
+        color: #fff;
+    }
+`;

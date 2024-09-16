@@ -1,15 +1,7 @@
 import connection from "@/../lib/db";
 import { NextResponse } from "next/server";
-import { RowDataPacket, FieldPacket } from 'mysql2';
-
-// 결과 타입 정의
-interface MaxIdxRow extends RowDataPacket {
-    max_idx: number | null;
-}
-
-interface NowDateRow extends RowDataPacket {
-    current_datetime: string;
-}
+import { nowDate } from "@/app/util/nowDate";
+import { maxIndex } from "@/app/util/maxPostIndex";
 
 export async function PUT(req: Request) {
     try {
@@ -41,13 +33,4 @@ export async function PUT(req: Request) {
         console.error("Error inserting data:", error);
         return NextResponse.json({ error: "Failed to insert data" }, { status: 500 });
     }
-}
-
-// 쿼리 함수 정의
-const maxIndex = async (): Promise<[MaxIdxRow[], FieldPacket[]]> => {
-    return connection.query('SELECT MAX(idx) AS max_idx FROM Community;');
-}
-
-const nowDate = async (): Promise<[NowDateRow[], FieldPacket[]]> => {
-    return connection.query('SELECT NOW() AS current_datetime;');
 }

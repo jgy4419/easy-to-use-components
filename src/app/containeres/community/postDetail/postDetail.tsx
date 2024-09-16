@@ -12,11 +12,15 @@ const PostDetail = () => {
     useEffect(() => {
         if(!communityData)
             getCommunityData();
+
+        console.log("communityData", communityData);
     }, [communityData]);
 
     const getCommunityData = async () => {
         const match = path.match(/\/(\d+)$/);
         const idx = match ? match[1] : -1;
+
+        console.log("params", match, idx);
         
         try {
             const response = await fetch(`/api/community/detail?idx=${idx}`);
@@ -35,19 +39,24 @@ const PostDetail = () => {
         }
     }
 
+    const deleteButtonHandler = () => {
+        router.back();
+    }
+
     return (
         <S.Container>
             <S.Content>
                 {
                     communityData
-                        ? <>
+                        ? 
+                    <>
                         <S.ContentHeader>
-                    <S.ContentTitle>{communityData.title}</S.ContentTitle>
-                    <S.ContentSubInfo>
-                        <S.ContentName>{communityData.name}</S.ContentName>
-                        <S.ContentDate>{communityData.date}</S.ContentDate>
-                    </S.ContentSubInfo>
-                </S.ContentHeader>
+                            <S.ContentTitle>{communityData.title}</S.ContentTitle>
+                            <S.ContentSubInfo>
+                                <S.ContentName>{communityData.name}</S.ContentName>
+                                <S.ContentDate>{communityData.date}</S.ContentDate>
+                            </S.ContentSubInfo>
+                        </S.ContentHeader>
                 <S.Line />
                 <S.ContentBody>{communityData.content}</S.ContentBody>
 
@@ -59,14 +68,20 @@ const PostDetail = () => {
                         onClick={() => router.back()} 
                         className="defaultButton"
                     >
-                            글목록
+                        게시글 목록
                     </S.ListButton>
                     <S.CreateButton 
-                        onClick={() => router.push("write")} 
+                        onClick={() => router.push(`write/${communityData!.idx}`)} 
                         className="defaultButton"
                     >
-                        글작성
+                        게시글 수정
                     </S.CreateButton>
+                    <S.DeleteButton 
+                        onClick={() => deleteButtonHandler()} 
+                        className="defaultButton"
+                    >
+                        게시글 삭제
+                    </S.DeleteButton>
                 </S.MoveButtonContainer>
             </S.Content>
         </S.Container>
