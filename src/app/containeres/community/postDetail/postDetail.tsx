@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import * as S from "./style/postDetail";
 import { useRouter, usePathname } from "next/navigation";
 import { ICommunity } from '../type/type';
+import { apiDelete, apiGet } from '@/app/util/apiModule';
+import { community } from '@/app/constants/errorMessage';
 
 const PostDetail = () => {
     const router = useRouter();
@@ -19,28 +21,18 @@ const PostDetail = () => {
     const getCommunityData = async () => {
         const match = path.match(/\/(\d+)$/);
         const idx = match ? match[1] : -1;
-
-        console.log("params", match, idx);
         
-        try {
-            const response = await fetch(`/api/community/detail?idx=${idx}`);
-
-            if(!response.ok) {
-                throw new Error("게시글들을 불러오는데 실패했습니다.");
-                
-            }
-            const data = await response.json();
-
-            console.log(data);
-            setCommunityData(data[0]);
-
-        } catch(err) {
-            console.log("데이터를 불러오는데 실패했습니다." + err);
-        }
+        const data = await apiGet(`community/detail?idx=${idx}`, community.detail);
+        setCommunityData(data[0]);
     }
 
-    const deleteButtonHandler = () => {
-        router.back();
+    const deleteButtonHandler = async () => {
+        console.log("path", path.split("/")[2]);
+        const postNumber = path.split("/")[2];
+        if(confirm("정말로 삭제하시겠습니까?")) {
+            const status = await apiDelete(`community/postDel?postNumber=${postNumber}`, community.delete);
+            status && router.back();
+        }
     }
 
     return (
@@ -48,18 +40,16 @@ const PostDetail = () => {
             <S.Content>
                 {
                     communityData
-                        ? 
-                    <>
-                        <S.ContentHeader>
-                            <S.ContentTitle>{communityData.title}</S.ContentTitle>
-                            <S.ContentSubInfo>
-                                <S.ContentName>{communityData.name}</S.ContentName>
-                                <S.ContentDate>{communityData.date}</S.ContentDate>
-                            </S.ContentSubInfo>
-                        </S.ContentHeader>
-                <S.Line />
-                <S.ContentBody>{communityData.content}</S.ContentBody>
-
+                        ? <>
+                            <S.ContentHeader>
+                                <S.ContentTitle>{communityData.title}</S.ContentTitle>
+                                <S.ContentSubInfo>
+                                    <S.ContentName>{communityData.name}</S.ContentName>
+                                    <S.ContentDate>{communityData.date}</S.ContentDate>
+                                </S.ContentSubInfo>
+                            </S.ContentHeader>
+                            <S.Line />
+                            <S.ContentBody>{communityData.content}</S.ContentBody>
                         </>
                         : <></>
                 }
