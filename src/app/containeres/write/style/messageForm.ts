@@ -4,7 +4,7 @@ import {TextField} from "@mui/material";
 export const Container = styled.div`
 `;
 
-export const FormBox = styled.form`
+export const FormBox = styled.div`
     position: relative;
     width: 80%;
     display: flex;
