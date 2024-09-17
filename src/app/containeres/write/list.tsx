@@ -1,47 +1,39 @@
+'use client';
+
 import React from 'react';
 import * as S from "./style/list";
-import {Button, Menu, MenuItem} from "@mui/material";
+import { RootState } from "@/store/rootReducer";
+import { useSelector, useDispatch } from "react-redux";
+import { componentChange, categoryChange } from "@/store/community";
 
 const List = ({title, list}: {title: string, list: string[]}) => {
-    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-    const open = Boolean(anchorEl);
-    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-        setAnchorEl(event.currentTarget);
-    };
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
+    const {category, component } = useSelector((state: RootState) => state.community);
+    const dispatch = useDispatch();
+
+    const selectChangeHandler = (event: React.ChangeEvent<HTMLSelectElement>, item: string) => {
+        const value = event.target.value;
+
+        console.log(value, item);
+
+        item === "category"
+            ? dispatch(componentChange(value))
+            : dispatch(categoryChange(value));
+
+        console.log(category, component);
+    }
 
     return (
         <>
-            <S.ListContainer>
-                <Button
-                    id="basic-button"
-                    aria-controls={open ? 'basic-menu' : undefined}
-                    aria-haspopup="true"
-                    aria-expanded={open ? 'true' : undefined}
-                    onClick={handleClick}
-                >
-                    {title}
-                </Button>
-                <Menu
-                    id="basic-menu"
-                    anchorEl={anchorEl}
-                    open={open}
-                    onClose={handleClose}
-                    MenuListProps={{
-                        'aria-labelledby': 'basic-button',
-                    }}
-                >
-                    {
-                        list.map((item, index) => {
-                            return (
-                                <MenuItem onClick={handleClose} key={index}>{item}</MenuItem>
-                            )
-                        })
-                    }
-                </Menu>
-            </S.ListContainer>
+            <S.Select onChange={(event) => selectChangeHandler(event, title)}>
+                <S.Option value={title}>{title}</S.Option>
+                {
+                    list.map((item, index) => {
+                        return (
+                            <S.Option value={item} key={index}>{item}</S.Option>
+                        )
+                    })
+                }
+            </S.Select>
         </>
     );
 };
