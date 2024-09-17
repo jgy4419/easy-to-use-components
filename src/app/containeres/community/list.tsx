@@ -5,10 +5,10 @@ import * as S from "./style/list";
 import { tableHead } from "@/app/constants/caution";
 import ListItem from "@/app/containeres/community/listItem";
 import { ICommunity } from "./type/type";
+import { apiGet } from '@/app/util/apiModule';
+import { community } from '@/app/constants/errorMessage';
 
 const List = () => {
-    const [isClient, setIsClient] = useState(false);
-
     const [communityData, setCommunityData] = useState<ICommunity[]>([]);
 
     useEffect(() => {
@@ -16,26 +16,9 @@ const List = () => {
     }, []);
 
     const getCommunityData = async () => {
-        try {
-            const response = await fetch("/api/community");
-
-            if(!response.ok) {
-                throw new Error("게시글들을 불러오는데 실패했습니다.");
-                
-            }
-            const data = await response.json();
-
-            console.log(data);
-            setCommunityData(data);
-
-        } catch(err) {
-            console.log("데이터를 불러오는데 실패했습니다." + err);
-        }
+        const data = await apiGet("community", community.postList);
+        setCommunityData(data);
     }
-
-    // useEffect(() => {
-        // testData !== null && setIsClient(true);
-    // }, []);
 
     return (
         <S.Container>

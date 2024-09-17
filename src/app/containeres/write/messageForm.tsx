@@ -8,6 +8,8 @@ import { RootState } from "@/store/rootReducer";
 import { useSelector, useDispatch } from "react-redux";
 import { titleChange, nameChange, contentChange } from "@/store/community";
 import { useRouter } from "next/navigation";
+import { apiGet, apiPost, apiPut } from '@/app/util/apiModule';
+import { community } from '@/app/constants/errorMessage';
 
 // 액션 타입 정의
 type ActionMap = {
@@ -69,45 +71,25 @@ const MessageForm = ({ postIndex }: {postIndex: string | -1}) => {
         console.log("data 전송", data);
 
         if(formData.idx === -1) {
-            await fetch("/api/community/write", {
-                method: "PUT",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(data)
-            }).then(() => {
-                router.back();
+            await apiPost("community/write", data, community.create).then(() => {
+                router.push("/community");
             });
         } else {
-            await fetch("/api/community/postEdit", {
-                method: "PUT",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(data)
-            }).then(() => {
-                router.back();
-            }); 
+            await apiPut("community/postEdit", data, community.afterUpdate).then(() => {
+                router.push("/community");
+            })
         }
     }
 
     useEffect(() => {
-        console.log("updateIndex", postIndex);
         if(postIndex !== -1) {
             postData();
         }
     }, [postIndex]);
 
     const postData = async () => {
-        const response = await fetch(`/api/community/detail?idx=${postIndex}`);
-
-        if(!response.ok) {
-            throw new Error("게시글을 불러오는데 실패했습니다.");
-        }
-        const data = await response.json();
-        
+        const data = await apiGet(`community/detail?idx=${postIndex}`, community.beforeUpdate);
         setFormData(data[0]);
-        console.log(data[0]);
     }
 
     return (
