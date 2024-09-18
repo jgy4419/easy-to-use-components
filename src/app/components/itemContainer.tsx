@@ -4,6 +4,7 @@ import Image, {StaticImageData} from "next/image";
 import NonStar from "@/app/assets/images/NonStar.png";
 import { useRouter, usePathname } from 'next/navigation';
 import Link from "next/link";
+import Warning from './warning';
 
 interface IItem {
     url: string,
@@ -34,6 +35,7 @@ const ItemContainer = ({ obj }: { obj: IItem }) => {
                         <S.Count>0</S.Count>
                     </S.StarCount>
                     <S.UploadTime>2024.07.21</S.UploadTime>
+                    <Warning />
                 </S.Inner>
             </S.Container>
         </Link>
