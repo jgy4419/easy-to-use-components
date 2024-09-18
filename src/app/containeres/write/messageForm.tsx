@@ -28,12 +28,12 @@ const MessageForm = ({ postIndex }: {postIndex: string | -1}) => {
 
     const { title, name, content, password, category, component } = useSelector((state: RootState) => state.community);
     const [formData, setFormData] = useState({
-        title: "",
-        content: "",
+        title: "제목을 입력해주세요.",
+        content: "내용을 입력해주세요.",
         component: "",
         date: "",
         idx: -1,
-        name: "",
+        name: "이름을 입력해주세요",
         password: "",
         category: ""
     });
