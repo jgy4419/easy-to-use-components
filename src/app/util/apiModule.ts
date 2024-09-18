@@ -1,3 +1,5 @@
+let prevData: null | string = null;
+
 export const apiGet = async (path: string, error: string, errFunc?: Function) => {
     try {
         const response = await fetch(`/api/${path}`);
@@ -7,6 +9,14 @@ export const apiGet = async (path: string, error: string, errFunc?: Function) =>
         }
 
         const data = await response.json();
+        
+        // 동일한 데이터가 들어오면 빈 배열 반환
+        if(prevData === JSON.stringify(data)) {
+            prevData = null;
+            return [];
+        }
+
+        prevData = JSON.stringify(data);
         return data;
     } catch (err) {
         errFunc && errFunc();

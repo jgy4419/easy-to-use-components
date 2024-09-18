@@ -16,6 +16,10 @@ export const Table = styled.table`
 export const Head = styled.thead`
 `;
 
+export const HeadRow = styled.tr`
+`;
+
+
 export const HeadItem = styled.th`
     border-bottom: 1px solid #fff;
 `;
@@ -30,3 +34,4 @@ export const BodyList = styled.tr`
 
 export const BodyItem = styled.td`
 `;
+
