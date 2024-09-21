@@ -8,7 +8,7 @@ const Page = () => {
     return (
         <Container>
             <Caution />
-            <MessageForm />
+            <MessageForm postIndex={-1}/>
         </Container>
     );
 };
