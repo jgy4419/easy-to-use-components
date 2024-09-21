@@ -25,6 +25,14 @@ const Header = () => {
         setMenuListState(prev => !prev);
     }
 
+    const menuLiHandler = (list: string) => {
+        setItemState(prev => !prev);
+        if (list !== "components") {
+            router.push(list === "home" ? "/" : "/" + list);
+        }
+        menuState();
+    }
+
     return (
         <S.Container>
             <S.MenuButton>
