@@ -8,6 +8,30 @@ import Button3 from "../containeres/image/button/button3.png";
 
 // 이미지 서버 
 
+
+export const componentCategory = [
+    {
+        name: "All",
+        icon: ""
+    },
+    {
+        name: "Card",
+        icon: ""
+    },
+    {
+        name: "Button",
+        icon: ""
+    },
+    {
+        name: "Menu",
+        icon: ""
+    },
+    {
+        name: "ETC",
+        icon: ""
+    }
+]
+
 // 나중에 DB에 추가
 export const itemList = {
     Card: {
