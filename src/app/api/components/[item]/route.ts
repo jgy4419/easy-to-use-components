@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import connection from '@/../lib/db'; // 데이터베이스 연결 설정을 가져옵니다.
 
+// ex. url이 /Card/card1 로 되어져 있으면 card1 의 code 들을 불러옴
 export async function GET(req: { url: string | URL }) {
     const { searchParams } = new URL(req.url);
     const url = searchParams.get("componentName");
@@ -10,8 +11,8 @@ export async function GET(req: { url: string | URL }) {
             `
                 SELECT * 
                 FROM Code
-                WHERE idx = ${url}
-            ` 
+                WHERE componentName = ${url}
+            `
         );
         console.log(rows);
         return NextResponse.json(rows); // JSON 응답을 반환합니다.
