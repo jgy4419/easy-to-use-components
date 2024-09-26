@@ -75,14 +75,14 @@ export const ScrollButton = styled(Button)`
 
 export const Inner = styled.div`
     position: absolute;
-    width: 70%;
+    width: 80%;
+    max-width: 1200px;
     inset: 0;
     margin: auto;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-
-    @media (max-width: 1000px) {
+    @media (max-width: 1200px) {
         flex-direction: column-reverse;
         justify-content: center;
         text-align: center;

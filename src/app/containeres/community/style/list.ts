@@ -8,9 +8,11 @@ export const Container = styled.section`
 
 export const Table = styled.table`
     width: 100%;
+    max-width: 1200px;
     font-size: 13px;
     text-align: center;
     border-collapse: collapse;
+    margin: auto;
 `;
 
 export const Head = styled.thead`

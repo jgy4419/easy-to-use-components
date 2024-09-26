@@ -32,7 +32,7 @@ export const MenuList = (anchor: Anchor) => {
                 role="button"
             >
                 <MainList sx={{marginTop: "30px"}}>
-                    {['Home', 'About', 'Components'].map((text, index) => (
+                    {['Home', 'About', 'Components'].map((text) => (
                         <ListItem key={text} disablePadding>
                             <ListItemButton>
                                 <ListItemText primary={text} />

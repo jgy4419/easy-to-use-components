@@ -4,6 +4,7 @@ import {Search as SearchIcon} from "@mui/icons-material";
 export const SearchContainer = styled.div`
     position: relative;
     width: 80%;
+    max-width: 1200px;
     height: 50px;
     display: flex;
     justify-content: space-between;

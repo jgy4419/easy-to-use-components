@@ -6,6 +6,7 @@ export const Container = styled.div`
 
 export const FormBox = styled.div`
     position: relative;
+    max-width: 1200px;
     width: 80%;
     display: flex;
     gap: 10px;

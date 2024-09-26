@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const Inner = styled.div`
     position: absolute;
-    width: 70%;
+    width: 80%;
+    max-width: 1200px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -107,7 +108,7 @@ export const Container = styled.div`
     width: 100vw;
     height: 100vh;
 
-    @media (max-width: 1000px) {
+    @media (max-width: 1200px) {
         ${Inner} {
             flex-direction: column;
         }
