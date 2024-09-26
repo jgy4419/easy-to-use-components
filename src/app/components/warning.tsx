@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as S from "./style/warning";
 
-const Warning = () => {
+const Warning = ({ note }: { note: string }) => {
+    useEffect(() => {
+        console.log(note);
+        
+    }, []);
     return (
         <S.WarningIcon>
-            <S.WarningDetail>주의사항이 담긴 내용</S.WarningDetail>
+            <S.WarningDetail>{note}</S.WarningDetail>
         </S.WarningIcon>
     );
 };
