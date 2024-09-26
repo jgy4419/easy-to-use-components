@@ -4,7 +4,8 @@ import connection from '@/../lib/db'; // 데이터베이스 연결 설정을 가
 // ex. url에 Card 라 되어 있으면 Card 관련된 컴포넌트들을 불러옴.
 export async function GET(req: { url: string | URL }) {
     const { searchParams } = new URL(req.url);
-    const url = searchParams.get("componentName");
+    const name = searchParams.get("name");
+    
 
     const [componentAll, componentFilter] = [
         `
@@ -14,13 +15,13 @@ export async function GET(req: { url: string | URL }) {
         `
             SELECT * 
             FROM Components
-            WHERE category = ${url}
+            WHERE category=${name}
         `
     ];
     
     try {
         const [rows] = await connection.query(
-            url === "all"
+            name === "all"
                 ? componentAll
                 : componentFilter
         );
