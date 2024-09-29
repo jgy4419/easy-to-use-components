@@ -7,7 +7,6 @@ import { ICommunity } from './type/type';
 const ListItem = ({data}: { data: ICommunity }) => {
     const router = useRouter();
 
-    console.log(data);
     return (
         <>
             <S.BodyList onClick={() => router.push("community/" + data.idx)}>

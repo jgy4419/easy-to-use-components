@@ -1,6 +1,6 @@
 'use client';
 import * as React from 'react';
-import {useEffect, useRef} from "react";
+import { useEffect, useRef, useState } from "react";
 import * as S from "./style/codeContainer";
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -17,6 +17,11 @@ interface TabPanelProps {
     children?: React.ReactNode;
     index: number;
     value: number;
+}
+
+interface ICodeObj {
+    fileName: string,
+    code: string
 }
 
 function CustomTabPanel(props: TabPanelProps) {
@@ -42,13 +47,14 @@ function a11yProps(index: number) {
     };
 }
 
-export default function CodeContainer() {
+export default function CodeContainer({ data }: any) {
     const
         [value, setValue] = React.useState(0),
         codeElement = useRef(null),
         pathNames = usePathname().split("/"),
         dispatch = useDispatch(),
-        { codeState } = useSelector((state: RootState) => state.editor);
+        { codeState } = useSelector((state: RootState) => state.editor),
+        [codeObj2, setCodeObj2] = useState<ICodeObj[]>([]);
 
     // TODO :  Card, card1 까지는 props나 redux 사용해서 가져오기
     const main = itemList[pathNames[1] as keyof typeof itemList];
@@ -72,8 +78,42 @@ export default function CodeContainer() {
             });
     }
 
+    const fileNameChangeHandler = (fileType: string): string => {
+        if(fileType === "script") {
+            return data.fileName + `.${data.language}x`;
+        } else {
+            return data.fileName + `.${data.language}`;
+        }
+    }
+
+    // db 값 중 jsx,tsx, 값들 배열에 담아주기
+    const addCodeValue = () => {
+        console.log("addCodeValue", data);
+
+        Object.keys(data).forEach((item) => {
+            if(/^script|style/.test(item)) {
+                const codeArr = [
+                    {
+                        fileName: fileNameChangeHandler(item),
+                        code: data[item]
+                    }
+                ]
+                setCodeObj2(prev => [...prev, ...codeArr]);
+            }
+        });
+
+        console.log("codeObj2", codeObj2);
+        
+    }
+
     useEffect(() => {
         Prism.highlightAll();
+        addCodeValue();
+
+        // unmount 될 때 배열 초기화
+        return () => {
+            setCodeObj2([]);
+        }
     }, [value]);
 
     return (
@@ -83,22 +123,20 @@ export default function CodeContainer() {
                     <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
                             {
-                                Object.keys(codeObj).map((key, index) => {
+                                codeObj2.map((item, index) => {
                                     return (
-                                        <Tab key={index} label={key} {...a11yProps(index)} sx={{color: "#fff", fontSize: "16px"}} />
+                                        <Tab key={index} label={item.fileName} {...a11yProps(index)} sx={{color: "#fff", fontSize: "16px"}} />
                                     )
                                 })
                             }
                         </Tabs>
                     </Box>
                     {
-                        Object.keys(codeObj).map((key, index) => {
-                            const values: string = codeObj[key as keyof typeof codeObj];
-
+                        codeObj2.map((item, index) => {
                             return (
                                 <CustomTabPanel value={value} index={index} key={index}>
                                     <S.Code>
-                                        <code ref={codeElement} className="language-jsx">{values}</code>
+                                        <code ref={codeElement} className="language-jsx">{item.code}</code>
                                     </S.Code>
                                 </CustomTabPanel>
                             )

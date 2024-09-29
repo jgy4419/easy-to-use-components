@@ -4,14 +4,16 @@ import connection from '@/../lib/db'; // 데이터베이스 연결 설정을 가
 // ex. url이 /Card/card1 로 되어져 있으면 card1 의 code 들을 불러옴
 export async function GET(req: { url: string | URL }) {
     const { searchParams } = new URL(req.url);
-    const url = searchParams.get("componentName");
+    const componentName = searchParams.get("componentName");
 
+    console.log("componentName", componentName);
+    
     try {
         const [rows] = await connection.query(
             `
                 SELECT * 
                 FROM Code
-                WHERE componentName = ${url}
+                WHERE componentName=${componentName}
             `
         );
         console.log(rows);
