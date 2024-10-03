@@ -45,7 +45,7 @@ const PostDetail = () => {
                                 <S.ContentTitle>{communityData.title}</S.ContentTitle>
                                 <S.ContentSubInfo>
                                     <S.ContentName>{communityData.name}</S.ContentName>
-                                    <S.ContentDate>{communityData.date}</S.ContentDate>
+                                    <S.ContentDate>{communityData.date.split('T')[0]}</S.ContentDate>
                                 </S.ContentSubInfo>
                             </S.ContentHeader>
                             <S.Line />
