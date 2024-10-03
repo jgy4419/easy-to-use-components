@@ -3,12 +3,20 @@ import styled from "styled-components";
 export const Container = styled.header`
     position: relative;
     display: flex;
-    gap: 30px;
-    align-items: center;
     width: 100vw;
     height: 80px;
     background-color: rgb(15, 18, 20);
     box-sizing: border-box;
+`;
+
+export const Inner = styled.div`
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    // justify-content: center;
+    margin: auto;
 `;
 
 export const MenuButton = styled.span`
@@ -22,7 +30,7 @@ export const MenuUl = styled.ul<{menuulliststate: string | undefined}>`
     z-index: 11;
     width: 150px;
     height: 100%;
-    top: -10px;
+    top: 0px;
     left: 0;
     margin: 0;
     background: rgb(27 29 30);
@@ -55,6 +63,7 @@ export const MenuDetailUl = styled.ul`
 export const BlackBackground = styled.div<{menuulliststate: string | undefined}>`
     z-index: 10;
     top: 0;
+    left: 0;
     position: absolute;
     width: 100%;
     height: 100vh;

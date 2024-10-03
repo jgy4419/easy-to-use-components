@@ -4,9 +4,9 @@ import * as S from "../style/header";
 import logo from "@/app/assets/images/logo.png";
 import Image from "next/image";
 import { IHeaderList, headerList } from '../../constants/main';
-import HeaderListItem from './headerListItem';
+import { useRouter } from "next/navigation";
 
-/* 
+/*
     TODO
     - props로 넘길 때 컴포넌트로 넘기면 안됨
     - 구조 전체적으롱 수정해야됨.
@@ -15,7 +15,8 @@ const Header = () => {
     const menuIcon = useRef<HTMLDivElement>(null);
     const [menuListState, setMenuListState] = useState(false);
     const [itemState, setItemState] = useState(false);
-    
+    const router = useRouter();
+
     const menuState = () => {
         // 아이콘 변경
         const menuIconDom = menuIcon.current;
@@ -27,35 +28,39 @@ const Header = () => {
 
     const menuLiHandler = (list: string) => {
         setItemState(prev => !prev);
-        if (list !== "components") {
-            router.push(list === "home" ? "/" : "/" + list);
-        }
+        list !== "components"
+            ? router.push(list === "home" ? "/" : "/" + list)
+            : router.push("all");
         menuState();
     }
 
     return (
         <S.Container>
-            <S.MenuButton>
-                <div ref={menuIcon} id="menuIcon" onClick={() => menuState()}>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </S.MenuButton>
-            <Image className='logoImg' src={logo} alt="logo" width={80} height={80}/>
-            <S.MenuUl menuliststate={menuListState ? "true" : undefined}>
-                {
-                    (Object.keys(headerList) as Array<keyof IHeaderList>).map((list: keyof IHeaderList, index: number) => {
-                        return (
-                            <S.MenuLi key={index} onClick={() => setItemState(prev => !prev)}>
-                                {list}
-                                <HeaderListItem itemState={itemState} itemList={headerList[list]}/>
-                            </S.MenuLi>
-                        )
-                    })
-                }
-            </S.MenuUl>
+            <S.Inner>
+                <S.MenuButton>
+                    <div ref={menuIcon} id="menuIcon" onClick={() => menuState()}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </S.MenuButton>
+                <Image className='logoImg' src={logo} alt="logo" width={50} height={50} onClick={() => router.push("/")}/>
+
+                <S.MenuUl menuulliststate={menuListState ? 'true': undefined}>
+                    {
+                        (Object.keys(headerList) as Array<keyof IHeaderList>).map((list: keyof IHeaderList, index: number) => {
+                            return (
+                                <S.MenuLi key={index} onClick={() => menuLiHandler(list)}>
+                                    {list}
+                                    {/* <HeaderListItem itemState={itemState} itemList={headerList[list]}/> */}
+                                </S.MenuLi>
+                            )
+                        })
+                    }
+                </S.MenuUl>
+                <S.BlackBackground menuulliststate={menuListState ? 'true': undefined} onClick={menuState}/>
+            </S.Inner>
             <style jsx>{`
                 #menuIcon {
                     position: relative;
@@ -63,7 +68,7 @@ const Header = () => {
                     width: 40px;
                     height: 35px;
                     position: relative;
-                    margin: 50px auto;
+                    margin-left: 20px;
                     -webkit-transform: rotate(0deg);
                     -moz-transform: rotate(0deg);
                     -o-transform: rotate(0deg);
@@ -97,11 +102,11 @@ const Header = () => {
                 }
 
                 #menuIcon span:nth-child(2),#menuIcon span:nth-child(3) {
-                    top: 18px;
+                    top: 14px;
                 }
 
                 #menuIcon span:nth-child(4) {
-                    top: 36px;
+                    top: 28px;
                 }
 
                 #menuIcon.open span:nth-child(1) {
