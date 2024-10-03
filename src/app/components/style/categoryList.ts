@@ -12,18 +12,8 @@ export const ComponentCategory = styled.li`
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex-wrap: wrap;
     cursor: pointer;
-`;
-
-export const ComponentIcon = styled.span`
-    width: 70px;
-    height: 70px;
-    background-color: #282F34;
-    border-radius: 10px;
-    @media (max-width: 700px) {
-        width: 50px;
-        height: 50px;
-    }
 `;
 
 export const ComponentName = styled.p`

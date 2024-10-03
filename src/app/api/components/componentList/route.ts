@@ -21,13 +21,11 @@ export async function GET(req: { url: string | URL }) {
     
     try {
         const [rows] = await connection.query(
-            name === "all"
+            name?.toLocaleLowerCase() === `"all"`
                 ? componentAll
                 : componentFilter
         );
 
-        console.log(rows);
-        
         return NextResponse.json(rows); // JSON 응답을 반환합니다.
     } catch (error) {
         console.error('Error:', error);

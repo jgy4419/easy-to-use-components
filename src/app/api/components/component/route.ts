@@ -16,7 +16,6 @@ export async function GET(req: { url: string | URL }) {
                 WHERE componentName=${componentName}
             `
         );
-        console.log(rows);
         return NextResponse.json(rows); // JSON 응답을 반환합니다.
     } catch (error) {
         console.error('Error:', error);

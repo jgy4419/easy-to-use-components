@@ -9,7 +9,6 @@ export async function GET(request: Request) {
 
     try {
         const [rows] = await connection.query('SELECT * FROM Community ORDER BY idx DESC LIMIT ? OFFSET ?', [limit, offset]);
-        console.log(rows);
         return NextResponse.json(rows); // JSON 응답을 반환합니다.
     } catch (error) {
         console.error('Error:', error);
