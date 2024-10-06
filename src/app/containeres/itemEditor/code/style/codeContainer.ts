@@ -14,12 +14,25 @@ export const Container = styled.div`
 
 export const Inner = styled.div`
     position: absolute;
-    //width: 70%;
-    //height: 80%;
     inset: 0;
     margin: auto;
     border: 1px solid #fff;
     overflow: scroll;
+`;
+
+export const Tabs = styled.div`
+    display: flex;
+`;
+
+export const Tab = styled.button`
+    padding: 10px;
+    background: transparent;
+    color: #fff;
+    border: 2px solid transparent;
+    transition: .3s;
+    &:hover {
+        border: 2px solid #1b6ca2;
+    }
 `;
 
 export const Code = styled.pre`

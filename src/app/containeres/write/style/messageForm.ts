@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import {TextField} from "@mui/material";
 
 export const Container = styled.div`
 `;
@@ -18,16 +17,28 @@ export const FormBox = styled.div`
 export const Information = styled.div`
     width: 100%;
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     gap: 10px;
     padding: 0 0 20px 0;
 `;
 
-export const MessageTextArea = styled(TextField)`
+export const Lists = styled.div`
+    display: flex;
+    gap: 10px;
+`;
+
+export const ContentInput = styled.textarea`
     display: flex;
     justify-content: center;
     background: #0F1214;
+    border-radius: 5px;
     width: 100%;
+    min-height: 200px;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #333;
+    resize: none;
+    color: #fff;
     label {
         color: grey;
     }
@@ -36,9 +47,11 @@ export const MessageTextArea = styled(TextField)`
 }
 `;
 
-export const UserName = styled(TextField)`
-    margin-left: 10px;
+export const UserName = styled.input`
     color: #fff;
+    background: #0F1214;
+    padding: 10px 20px;
+    border: 0;
     label, div {
         color: #eee;
         font-size: 14px;

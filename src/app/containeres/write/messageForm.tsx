@@ -2,14 +2,13 @@
 import React, { useEffect, useState } from 'react';
 import * as S from "./style/messageForm";
 import List from "./list";
-import Box from "@mui/material/Box";
-import { AccountCircle } from "@mui/icons-material";
 import { RootState } from "@/store/rootReducer";
 import { useSelector, useDispatch } from "react-redux";
 import { titleChange, nameChange, contentChange } from "@/store/community";
 import { useRouter } from "next/navigation";
 import { apiGet, apiPost, apiPut } from '@/app/util/apiModule';
 import { community } from '@/app/constants/errorMessage';
+import { usePathname } from 'next/navigation';
 
 // 액션 타입 정의
 type ActionMap = {
@@ -18,13 +17,15 @@ type ActionMap = {
     content: typeof contentChange
 }
 
-const MessageForm = ({ postIndex }: {postIndex: string | -1}) => {
+const MessageForm = () => {
     // 수정하기
     const testComponentList = ["Card", "Button"];
     const testNameList = ["Card1", "Card2"];
 
     const dispatch = useDispatch();
     const router = useRouter();
+
+    const path = usePathname();
 
     const { title, name, content, password, category, component } = useSelector((state: RootState) => state.community);
     const [formData, setFormData] = useState({
@@ -53,8 +54,6 @@ const MessageForm = ({ postIndex }: {postIndex: string | -1}) => {
         if (action) {
             dispatch(action(value)); // 함수 호출 시 값을 전달하여 액션을 생성하고 dispatch합니다.
         }
-
-        console.log(title, name, content);
     }
 
     const submitHandler = async () => {
@@ -68,8 +67,6 @@ const MessageForm = ({ postIndex }: {postIndex: string | -1}) => {
             updateIndex: formData.idx
         };
 
-        console.log("data 전송", data);
-
         if(formData.idx === -1) {
             await apiPost("community/write", data, community.create).then(() => {
                 router.push("/community");
@@ -82,43 +79,45 @@ const MessageForm = ({ postIndex }: {postIndex: string | -1}) => {
     }
 
     useEffect(() => {
-        if(postIndex !== -1) {
-            postData();
+        const match = path.match(/\/(\d+)$/);
+        const idx = match ? match[1] : -1;
+        
+        if(idx !== -1) {
+            
+            postData(Number(idx));
         }
-    }, [postIndex]);
+    }, []);
 
-    const postData = async () => {
-        const data = await apiGet(`community/detail?idx=${postIndex}`, community.beforeUpdate);
-        setFormData(data[0]);
+    const postData = async (idx: number) => {
+
+        console.log("idx", idx);
+        
+        if(idx !== -1) {
+            const data = await apiGet(`community/detail?idx=${idx}`, community.beforeUpdate);
+            setFormData(data[0]);
+        }
     }
 
     return (
         <S.Container>
             <S.FormBox>
-                <S.TitleInput onChange={(event) => textChange(event, "title")} placeholder={formData.title} type="text" />
+                <S.TitleInput onChange={(event) => textChange(event, "title")} placeholder={formData && formData.title} type="text" />
                 <S.Information>
-                    <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-                        <AccountCircle sx={{ color: '#fff', mr: 1, my: 0.5 }} />
-                        <S.UserName 
-                            id="input-with-lx" 
-                            label={formData.name}
-                            variant="standard" 
-                            onChange={(event) => textChange(event, "name")}
-                        />
-                    </Box>
-                    <List title="category" list={testComponentList} />
-                    <List title="component" list={testNameList} />
+                    <S.UserName placeholder={formData && formData.name}></S.UserName>
+                    <S.Lists>
+                        <List title="category" list={testComponentList} />
+                        <List title="component" list={testNameList} />
+                    </S.Lists>
                 </S.Information>
-                <S.MessageTextArea
-                    id="outlined-multiline-static"
-                    label={formData.content}
-                    multiline
-                    rows={4}
+                <S.ContentInput
+                    placeholder={formData && formData.content}
                     onChange={(event) => textChange(event, "content")}
-                />
+                >
+
+                </S.ContentInput>
                 <S.SubmitButton onClick={submitHandler}>
                     {
-                        formData.idx === -1
+                        formData && formData.idx === -1
                             ? "Submit"
                             : "Update"
                     }
