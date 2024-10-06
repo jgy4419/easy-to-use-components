@@ -1,8 +1,8 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import connection from '@/../lib/db'; // 데이터베이스 연결 설정을 가져옵니다.
 
 // ex. url에 Card 라 되어 있으면 Card 관련된 컴포넌트들을 불러옴.
-export async function GET(req: { url: string | URL }) {
+export async function GET(req: NextRequest) {
     const { searchParams } = new URL(req.url);
     const name = searchParams.get("name");
     
