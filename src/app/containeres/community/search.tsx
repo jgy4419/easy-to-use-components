@@ -1,6 +1,9 @@
 import React from 'react';
 import * as S from "./style/search";
 import { useRouter } from "next/navigation";
+import Icon from '@/app/components/iconBox';
+
+{/* <FontAwesomeIcon icon={faMagnifyingGlass} /> */}
 
 const Search = () => {
     const router = useRouter();
@@ -14,7 +17,9 @@ const Search = () => {
             <S.CreatePost onClick={postClickHandler}>Create Post</S.CreatePost>
             <S.SearchWrapper>
                 <S.SearchInput placeholder="검색 내용을 입력해주세요."/>
-                <S.SearchButton></S.SearchButton>
+                <S.IconContainer>
+                    <Icon width={40} height={40} iconName="faMagnifyingGlass"/>
+                </S.IconContainer>
             </S.SearchWrapper>
         </S.SearchContainer>
     );

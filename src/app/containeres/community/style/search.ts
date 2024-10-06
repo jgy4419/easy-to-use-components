@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import {Search as SearchIcon} from "@mui/icons-material";
 
 export const SearchContainer = styled.div`
     position: relative;
@@ -44,8 +43,7 @@ export const SearchInput = styled.input`
     padding: 15px 20px;
 `;
 
-export const SearchButton = styled(SearchIcon)`
+export const IconContainer = styled.div`
     position: absolute;
-    top: 10px;
-    right: 40px;
+    right: 30px;
 `;

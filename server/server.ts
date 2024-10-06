@@ -16,7 +16,7 @@ const connection = mysql.createPool({
 
 // http://localhost:3001/api/data 경로로 MYSQL DB에서 데이터를 가져오는 API를 제공한다.
 
-app.get("/api/data", async (req, res) => {
+app.get("/api/data", async (req: any, res: { json: (arg0: any) => void; status: (arg0: number) => { (): any; new(): any; json: { (arg0: { error: string; }): void; new(): any; }; }; }) => {
     try {
         const [rows] = await connection.query('SELECT * FROM Components');
         res.json(rows);

@@ -1,7 +1,8 @@
+'use client';
 import React from 'react';
 import styled from "styled-components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEarthAmericas, faIdCard, faTabletScreenButton, faBars, faStar,IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { faEarthAmericas, faIdCard, faTabletScreenButton, faBars, faStar,IconDefinition, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 interface IIconProps {
     width: number,
@@ -15,10 +16,11 @@ const iconMap: { [key: string]: IconDefinition } = {
     'faIdCard': faIdCard,
     'faTabletScreenButton': faTabletScreenButton,
     'faBars': faBars,
-    'faStar': faStar
+    'faStar': faStar,
+    'faMagnifyingGlass': faMagnifyingGlass
 };
 
-const Icon = ({ width, height, iconName }: IIconProps) => {
+const IconBox = ({ width, height, iconName }: IIconProps) => {
     const icon = iconMap[iconName]; // 아이콘 이름에 맞는 아이콘 객체 가져오기
 
     if (!icon) {
@@ -34,17 +36,18 @@ const Icon = ({ width, height, iconName }: IIconProps) => {
 };
 
 const ComponentIcon = styled.div<{width: number, height: number}>`
+    position: relative;
     width: ${props => props.width}px;
     height: ${props => props.width}px;
-    background-color: #282F34;
+    // background-color: #282F34;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     @media (max-width: 700px) {
-        width: 50px;
-        height: 50px;
+        width: ${props => props.width / 1.2}px;
+        height: ${props => props.width / 1.2}px;
     }
 `;
 
-export default Icon;
+export default IconBox;
