@@ -6,15 +6,16 @@ const Footer = () => {
     return (
         <Container>
             <Inner>
-                <span>© 2024 개발자 jgy_98</span>
+                <span>© Coded width by 2024 개발자 jgy_98 ^,^</span>
                 <span>Contact jgy_98@naver.com</span>
             </Inner>
         </Container>
     );
 };
 
-const Container = styled.div`
-    position: relative;
+const Container = styled.footer`
+    // position: absolute;
+    // bottom: 0;
     text-align: center;
     width: 100vw;
     height: 7%;

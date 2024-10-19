@@ -2,7 +2,7 @@ import React from 'react';
 import * as S from "./style/categoryList";
 import { componentCategory } from '../constants/componentList';
 import { useRouter } from 'next/navigation';
-import Icon from './icon';
+import Icon from './iconBox';
 
 const CategoryList = () => {
     const router = useRouter();
@@ -12,7 +12,7 @@ const CategoryList = () => {
         {
             componentCategory.map((obj, index) => {
                 return (
-                    <S.ComponentCategory key={index} onClick={() => router.push("/" + obj.name)}>
+                    <S.ComponentCategory key={index} onClick={() => router.push("/component/" + obj.name)}>
                         <Icon width={70} height={70} iconName={obj.icon}/>
                         <S.ComponentName>{obj.name}</S.ComponentName>
                     </S.ComponentCategory>           
