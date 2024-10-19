@@ -8,11 +8,11 @@ const EditorContent = ({ componentData }: any) => {
     return (
         <S.EditContent>
             <div>
-                {componentData.backImage !== "" && <FileEdit name={componentData.backImage} type="file"/>}
+                {componentData.backImage && <FileEdit name={componentData.backImage} type="file"/>}
                 {/* {componentData === "img" && <FileEdit name={classNames.image} type={typeValue}/>} */}
-                {componentData.title !== "" && <TextEdit name={componentData.title}/>}
+                {componentData.title && <TextEdit name={componentData.title}/>}
                 {/* {componentData.descripㅈtion !== "" && <TextEdit name={classNames.subTitle}/>} */}
-                {componentData.description !== "" && <DescriptionEdit name={componentData.description}/>}
+                {componentData.description && <DescriptionEdit name={componentData.description}/>}
             </div>
         </S.EditContent>
     );

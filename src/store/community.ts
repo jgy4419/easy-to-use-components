@@ -12,7 +12,7 @@ const communitySlice = createSlice({
         date: ""
      },
     reducers: {
-        titleChange: (state, action) => {
+        titleChange: (state: { title: string; }, action: { payload: string; }) => {
             state.title = action.payload;
 
             console.log("title action", action.payload);

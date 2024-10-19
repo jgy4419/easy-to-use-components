@@ -1,4 +1,3 @@
-import React from 'react';
 import Editor from '@/app/containeres/itemEditor/editor';
 
 const ItemDetail = () => {

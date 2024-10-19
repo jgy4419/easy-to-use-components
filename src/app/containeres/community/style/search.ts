@@ -46,4 +46,5 @@ export const SearchInput = styled.input`
 export const IconContainer = styled.div`
     position: absolute;
     right: 30px;
+    cursor: pointer;
 `;

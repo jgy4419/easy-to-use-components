@@ -20,7 +20,7 @@ export const apiGet = async (path: string, error: string, errFunc?: Function) =>
         return data;
     } catch (err) {
         errFunc && errFunc();
-        alert(err);
+        // alert(err);
     }
 }
 

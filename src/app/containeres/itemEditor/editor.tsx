@@ -10,10 +10,12 @@ import dynamic from 'next/dynamic';
 import Items from "@/app/containeres/items/items";
 import CodeContainer from "@/app/containeres/itemEditor/code/codeContainer";
 import Content from "./Content";
+import { IEditorData } from "./types/type";
+import Loading from "@/app/components/Loading";
 
 const Editor = () => {
-    const [Component, setComponent] = useState<any>(null);
-    const [data, setData] = useState({});
+    const [Component, setComponent] = useState<React.ComponentType>();
+    const [data, setData] = useState<IEditorData>({});
     const param = usePathname();
     const { codeState } = useSelector((state: RootState) => state.editor);
     const dispatch = useDispatch();
@@ -25,14 +27,17 @@ const Editor = () => {
         const componentName = match && match[0];
         
         const response = await apiGet(`components/component?componentName="${componentName}"`, "컴포넌트를 불러오지 못했습니다.");
-        setData(prev => ({...prev, ...response[0]}));
+        
+        setData((prev: any) => ({...prev, ...response[0]}));
     }
 
     useEffect(() => {
         const loadComponent = async () => {
             console.log("match!", match && match.input);
+            console.log(data);
+            
             try {
-                const ImportedComponent = dynamic(() => import(`@/app/containeres${match && match.input}`));
+                const ImportedComponent = dynamic(() => import(`@/app/containeres/${data.category}/${data.componentName}`));
                 setComponent(() => ImportedComponent);
                 // itemFilter();
             } catch (error) {
@@ -44,13 +49,13 @@ const Editor = () => {
         codeState && dispatch(codeStateChange(false));
 
         loadComponent();
-    }, [param]);
+    }, [param, data]);
 
     useEffect(() => {
         componentChange()
     }, []);
 
-    if (!Component) return <div>Loading...</div>;
+    if (!Component) return <Loading />
 
     return (
         <S.Container>

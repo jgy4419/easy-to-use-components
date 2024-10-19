@@ -6,7 +6,6 @@ interface NowDateRow extends RowDataPacket {
 }
 
 export const nowDate = async (): Promise<any> => {
-
     const [nowDateRows]: any = await connection.query('SELECT NOW() AS current_datetime;');
     const current_datetime = nowDateRows.length > 0 ? nowDateRows[0].current_datetime : null;
     

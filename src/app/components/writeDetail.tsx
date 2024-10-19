@@ -1,10 +1,9 @@
 "use client";
-import React from 'react';
 import styled from "styled-components";
 import Caution from "@/app/components/caution";
 import MessageForm from "@/app/containeres/write/messageForm";
 
-const Page = () => {
+const WriteDetail = () => {
     return (
         <Container>
             <Caution />
@@ -18,4 +17,4 @@ const Container = styled.div`
     width: 100vw;
 `;
 
-export default Page;
+export default WriteDetail;

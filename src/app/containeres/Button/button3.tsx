@@ -12,7 +12,7 @@ const Button3 = () => {
                 {
                     [arrow, heart, save].map((img, index) => {
                         return (
-                            <S.Button3DImg src={img} key={index}/>
+                            <S.Button3DImg src={String(img)} key={index}/>
                         )
                     })
                 }

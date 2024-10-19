@@ -1,9 +1,10 @@
-"use client";
+'use client';
 import React from 'react';
-import Items from '../containeres/items/items';
-import styled from 'styled-components';
+import styled from "styled-components";
+import Items from './items';
 
-const Card = () => {
+
+const ItemsContain = () => {
     return (
         <Container>
             <Inner>
@@ -16,7 +17,9 @@ const Card = () => {
 const Container = styled.div`
     position: relative;
     width: 100vw;
-    height: 100%;   
+    height: 88%;
+    overflow: scroll;
+    margin: auto;
 `;
 
 const Inner = styled.div`
@@ -29,4 +32,4 @@ const Inner = styled.div`
     align-items: center;
 `;
 
-export default Card;
+export default ItemsContain;

@@ -1,20 +1,9 @@
-"use client";
-import styled from "styled-components";
-import Caution from "@/app/components/caution";
-import MessageForm from "@/app/containeres/write/messageForm";
+import WriteDetail from "@/app/components/writeDetail";
 
 const Page = () => {
     return (
-        <Container>
-            <Caution />
-            <MessageForm/>
-        </Container>
+        <WriteDetail />
     );
 };
-
-const Container = styled.div`
-    position: relative;
-    width: 100vw;
-`;
 
 export default Page;

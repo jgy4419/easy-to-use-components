@@ -29,10 +29,6 @@ export const Button = styled.button`
     width: 150px;
     height: 70px;
     transition: .3s;
-    // &:hover {
-    //     color: #333;
-    //     background-color: #fff;
-    // }
 `;
 
 export const Container = styled.div`

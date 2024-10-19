@@ -7,11 +7,14 @@ import { tableHead } from "@/app/constants/caution";
 import { ICommunity } from "./type/type";
 import { apiGet } from '@/app/util/apiModule';
 import { community } from '@/app/constants/errorMessage';
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/rootReducer";
 
 const List = () => {
     const [communityData, setCommunityData] = useState<ICommunity[]>([]);
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
+    const { communitySearchData } = useSelector((state: RootState) => state.search);
     const observerRef = useRef<null | HTMLDivElement>(null);
 
     const getCommunityData = async (page: number) => {
@@ -34,8 +37,14 @@ const List = () => {
     }, [loading]);
 
     useEffect(() => {
-        getCommunityData(page);
+        if(communitySearchData.length === 0)
+            getCommunityData(page);
     }, [page]);
+
+    useEffect(() => {
+        if(communitySearchData.length !== 0)
+            setCommunityData(communitySearchData);
+    }, [communitySearchData]);
 
     useEffect(() => {
         const observer = new IntersectionObserver(handleObserver, {threshold: 1.0});
