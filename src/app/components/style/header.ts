@@ -15,7 +15,7 @@ export const Inner = styled.div`
     display: flex;
     gap: 30px;
     align-items: center;
-    // justify-content: center;
+    justify-content: space-between;
     margin: auto;
 `;
 
@@ -26,79 +26,20 @@ export const MenuButton = styled.span`
 `;
 
 export const MenuUl = styled.ul<{menuulliststate: string | undefined}>`
-    position: fixed;
-    z-index: 11;
-    width: 150px;
-    height: 100%;
-    top: 0px;
-    left: 0;
-    margin: 0;
-    background: rgb(27 29 30);
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    transition: .1s;
-    transform: ${props => props.menuulliststate
-        ? "translateX(0%)"
-        : "translateX(-100%)"
-    };
-`;
-
-export const MenuDetailUl = styled.ul`
-    position: absolute;
-    transition: .3s;
-    transition-delay: .3s;
-    // left: 100%;
-    //font-size: 16px;
-    display: flex;
-    font-size: 16px;
-    flex-direction: column;
-    gap: 20px;
-    opacity: 0;
-    transform: translateX(-100%);
-`;
-
-export const BlackBackground = styled.div<{menuulliststate: string | undefined}>`
-    z-index: 10;
-    top: 0;
-    left: 0;
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    opacity: .5;
-    background-color: #000;
-    transform: translateX(${props => props.menuulliststate === "true" ? "0%" : "-100%"});
 `;
 
 export const MenuLi = styled.li`
-    width: 120px;
     position: relative;
     text-align: center;
     border-radius: 20px;
-    font-size: 20px;
+    font-size: 16px;
     cursor: pointer;
-    padding: 15px 5px;
-    transition: .5s;
-    &:hover {
-        background-color: #fff;
-        color: #333;
-        ${MenuDetailUl} {
-            transform: translateX(180%);
-            opacity: 1;
-        }
-    }
-`;
-
-export const MenuDetailLi = styled.li`
+    padding: 10px 10px;
+    font-weight: 600;
     transition: .3s;
-    color: #fff;
-    padding: 10px;
-    border-radius: 10px;
-    box-sizing: border-box;
     &:hover {
-        color: #333;
-        background: #fff;
+        color: #407da5;
+        opacity: 1;
     }
 `;
