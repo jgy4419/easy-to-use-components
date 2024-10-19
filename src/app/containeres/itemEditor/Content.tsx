@@ -7,6 +7,7 @@ import EditorContent from "@/app/containeres/itemEditor/editorContent";
 import { RootState } from "@/store/rootReducer";
 import { useSelector, useDispatch } from "react-redux";
 import {codeStateChange} from "@/store/editor";
+import Loading from '@/app/components/Loading';
 
 const Content = ({ data }: { data: any }) => {
     const dispatch = useDispatch();
@@ -32,7 +33,7 @@ const Content = ({ data }: { data: any }) => {
                         <EditorContent componentData={data}/>
                         <S.CreateButton className="defaultButton" onClick={() => dispatch(codeStateChange(!codeState))}>Create!</S.CreateButton>
                     </S.Content>
-                    : <>Loading</>
+                    : <Loading />
             }
         </>
     );
