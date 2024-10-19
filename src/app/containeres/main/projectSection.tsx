@@ -43,7 +43,7 @@ const ProjectSection = () => {
                 <S.Content>
                     <S.Title>{content.title}</S.Title>
                     <S.Description>{content.description}</S.Description>
-                    <S.Button onClick={() => route.push("/All")}>{content.button}</S.Button>
+                    <S.Button onClick={() => route.push("/component/All")}>{content.button}</S.Button>
                 </S.Content>
             </S.Inner>
         </S.Container>

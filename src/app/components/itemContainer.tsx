@@ -12,8 +12,10 @@ const ItemContainer = ({ obj }: {obj : IItemContainerObj}) => {
     const param = usePathname();
     const imageSrc = `/image/${String(obj.category).toLowerCase()}/${obj.imgName}.png`;
 
+    console.log("param.split('/')[1]", param);
+    
     return (
-        <Link href={`/${param.split('/')[1]}/${obj.imgName}`}>
+        <Link href={`${param}/${obj.imgName}`}>
             <S.Container>
                 <Image className='itemImage' src={imageSrc} alt="이미지" width={300} height={150}/>
                 <S.HoverContainer>

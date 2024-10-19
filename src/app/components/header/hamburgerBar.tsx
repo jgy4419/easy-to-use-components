@@ -1,18 +1,13 @@
-import { useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import * as S from "@/app/components/style/header";
-import * as React from "react";
 
 export const HamburgerBar = () => {
-    const [menuListState, setMenuListState] = useState(false);
     const menuIcon = useRef<HTMLDivElement>(null);
 
     const menuState = () => {
         // 아이콘 변경
         const menuIconDom = menuIcon.current;
         menuIconDom && menuIconDom.classList.toggle("open");
-
-        // 메뉴 추가
-        setMenuListState(prev => !prev);
     }
 
     return (
