@@ -6,6 +6,9 @@ import { communityDataChangeHandler } from "@/store/search";
 const useSearch = (state: string ) => {
     const dispatch = useDispatch();
 
+    console.log("state", state);
+    
+
     const searchFilter = (searchValue: string) => {
         if(state === "community")
             communityHandler(searchValue);
@@ -16,7 +19,7 @@ const useSearch = (state: string ) => {
 
     const communityHandler = async (searchValue: string) => {
         console.log(searchValue);
-        const data = await apiGet(`search/community?searchValue=${searchValue}`, "검색 결과가 잘못되었습니다.");
+        const data = await apiGet(`search/community?searchValue=${searchValue}&searchState=${state}`, "검색 결과가 잘못되었습니다.");
         console.log(data);
 
         // store 에 적용시켜주기
