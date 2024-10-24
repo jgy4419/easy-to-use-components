@@ -8,6 +8,7 @@ import NoItems from "@/app/containeres/Error/NoItems";
 import CategoryList from '@/app/components/categoryList';
 import { apiGet } from '@/app/util/apiModule';
 import Loading from '@/app/components/Loading';
+import Search from '../community/search';
 
 const Items = () => {
     const path = usePathname().split("/")[2];
@@ -48,6 +49,7 @@ const Items = () => {
         <ErrorBoundary>
             <S.Container>
                 <CategoryList />
+                <Search state={"components"}/>
                 <S.Items>
                     {
                         items.map((item, index: number) => {
