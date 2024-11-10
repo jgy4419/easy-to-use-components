@@ -49,7 +49,7 @@ const Items = () => {
         <ErrorBoundary>
             <S.Container>
                 <CategoryList />
-                <Search state={"components"}/>
+                {/* <Search state="component"/> */}
                 <S.Items>
                     {
                         items.map((item, index: number) => {
