@@ -16,6 +16,7 @@ const Page = () => {
 const Container = styled.div`
     position: relative;
     width: 100vw;
+    height: 100%;
 `;
 
 export default Page;
