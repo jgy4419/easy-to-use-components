@@ -7,7 +7,7 @@ body {
 .container {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 80px);
   background: #000;
   color: #fff;
 }
@@ -43,11 +43,11 @@ a {
   transform: translateY(30px);
   border-radius: 10px;
   border: 2px solid #1b6ca2;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
   cursor: pointer;
   transition: .3s;
-  padding: 10px 30px;
+  padding: 8px 20px;
 }
 
 .defaultButton:hover {
