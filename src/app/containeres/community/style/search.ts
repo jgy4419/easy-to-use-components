@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const SearchContainer = styled.div`
     position: relative;
+    z-index: 10;
     width: 80%;
     max-width: 1200px;
     height: 50px;
@@ -26,14 +27,15 @@ export const CreatePost = styled.div`
     }
 `;
 
-export const SearchWrapper = styled.div`
+export const SearchWrapper = styled.main`
     position: relative;
-    width: 200px;
+    width: 250px;
     display: flex;
+    margin: auto;
 `;
 
 export const SearchInput = styled.input`
-    position: absolute;
+    // position: absolute;
     width: 100%;
     right: 12%;
     border-radius: 10px;
@@ -45,6 +47,6 @@ export const SearchInput = styled.input`
 
 export const IconContainer = styled.div`
     position: absolute;
-    right: 30px;
+    right: 10px;
     cursor: pointer;
 `;

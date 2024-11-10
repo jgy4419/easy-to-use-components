@@ -9,28 +9,15 @@ const useSearch = (state: string ) => {
     console.log("state", state);
     
 
-    const searchFilter = (searchValue: string) => {
-        if(state === "community")
-            communityHandler(searchValue);
-        else if (state === "component") {
-            componentHandler(searchValue);
-        }
-    }
-
-    const communityHandler = async (searchValue: string) => {
+    const searchRes = async (searchValue: string) => {
         console.log(searchValue);
         const data = await apiGet(`search/community?searchValue=${searchValue}&searchState=${state}`, "검색 결과가 잘못되었습니다.");
-        console.log(data);
 
         // store 에 적용시켜주기
         dispatch(communityDataChangeHandler(data));
     }
 
-    const componentHandler = (searchValue: string) => {
-
-    }
-
-    return { searchFilter };
+    return { searchRes };
 };
 
 export default useSearch;

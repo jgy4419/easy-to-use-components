@@ -16,8 +16,10 @@ const Page = () => {
         <Container>
             <Caution />
             <Inner>
-                {/* <CreatePost onClick={postClickHandler}>Create Post</CreatePost> */}
-                <Search state={"community"}/>
+                <CreatePost onClick={postClickHandler}>Create Post</CreatePost>
+                <SearchContainer>
+                    <Search state={"community"}/>
+                </SearchContainer>
             </Inner>
             <List />
         </Container>
@@ -31,14 +33,12 @@ const Container = styled.main`
 `;
 
 const Inner = styled.div`
-    display: flex;
-    // width: 100%;
-    // background-color: #fff;
-    // justify-content: start;
 `;
 
 export const CreatePost = styled.div`
-    // position: absolute;
+    position: absolute;
+    z-index: 9999;
+    left: 10%;
     font-weight: 700;
     cursor: pointer;
     padding: 15px 30px;
@@ -51,6 +51,15 @@ export const CreatePost = styled.div`
     }
     &:active {
         background: #1b6ca2;
+    }
+`;
+
+const SearchContainer = styled.div`
+    width: 100%;
+    display: flex;
+    & main {
+        position: absolute;
+        right: 0;
     }
 `;
 

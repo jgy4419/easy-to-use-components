@@ -14,11 +14,10 @@ const Footer = () => {
 };
 
 const Container = styled.footer`
-    // position: absolute;
-    // bottom: 0;
+    position: relative;
     text-align: center;
     width: 100vw;
-    height: 7%;
+    height: 80px;
     background-color: rgb(15,18,20);
     font-size: 16px;
     font-weight: 700;
