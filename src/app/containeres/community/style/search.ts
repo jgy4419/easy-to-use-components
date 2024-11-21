@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const SearchContainer = styled.div`
     position: relative;
     z-index: 10;
-    width: 80%;
+    width: 70%;
     max-width: 1200px;
     height: 50px;
     display: flex;

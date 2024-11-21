@@ -75,8 +75,8 @@ export const ScrollButton = styled(Button)`
 
 export const Inner = styled.div`
     position: absolute;
-    width: 80%;
-    max-width: 1200px;
+    width: 70%;
+    max-width: 1000px;
     inset: 0;
     margin: auto;
     display: flex;

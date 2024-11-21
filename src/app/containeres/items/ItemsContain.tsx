@@ -17,7 +17,7 @@ const ItemsContain = () => {
 const Container = styled.div`
     position: relative;
     width: 100vw;
-    height: 88%;
+    height: calc(100% - 80px);
     overflow: scroll;
     margin: auto;
 `;
