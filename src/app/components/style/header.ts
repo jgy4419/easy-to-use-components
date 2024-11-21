@@ -10,13 +10,16 @@ export const Container = styled.header`
 `;
 
 export const Inner = styled.div`
-    width: 100%;
+    width: 70%;
     max-width: 1200px;
     display: flex;
     gap: 30px;
     align-items: center;
     justify-content: space-between;
     margin: auto;
+    @media (max-width: 1200px) {
+        width: 80%;
+    }
 `;
 
 export const MenuButton = styled.span`

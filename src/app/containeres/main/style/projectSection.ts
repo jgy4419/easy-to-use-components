@@ -1,25 +1,12 @@
 import styled from "styled-components";
 
-export const Inner = styled.div`
-    position: absolute;
-    width: 80%;
-    max-width: 1200px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    inset: 0;
-    margin: auto;
-`;
-
 export const ImgContent = styled.div`
     width: 50%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    padding: 20px;
+    padding: 20px;  
 `;
 
 export const ImgTitle = styled.h1`
@@ -30,7 +17,6 @@ export const ImgZip = styled.div`
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
     height: 250px;
 `;
 
@@ -103,6 +89,27 @@ export const Button = styled.button`
     }
 `;
 
+export const Inner = styled.div`
+    position: absolute;
+    width: 70%;
+    max-width: 1200px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    inset: 0;
+    @media (max-width: 1200px) {
+        margin-top: 80px;
+        inset: 0;
+        ${ImgContent} {
+            align-items: center;
+        }
+        ${ImgZip} {
+            justify-content: center;
+        }
+    }
+`;
+
 export const Container = styled.div`
     position: relative;
     width: 100vw;
@@ -127,7 +134,7 @@ export const Container = styled.div`
             margin: auto;
         }
         ${Img} {
-            top: 10px;
+            top: 5ㅋpx;
         }
         ${ImgButtons} {
             top: 50px;

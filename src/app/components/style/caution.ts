@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.section`
     position: relative;
-    width: 80%;
+    width: 70%;
     max-width: 1200px;
     height: 250px;
     background-color: #0F1214;
@@ -19,7 +19,9 @@ export const Inner = styled.div`
 `;
 
 export const Title = styled.h1`
-    
+    @media (max-width: 1000px) {
+        font-size: 16px;
+    }
 `;
 
 export const SubTitle = styled.p`
@@ -44,4 +46,8 @@ export const Caution = styled.li`
     display: flex;
     align-items: center;
     justify-content: center;
+    @media (max-width: 1000px) {
+        width: 25%;
+        font-size: 10px;
+    }
 `;
