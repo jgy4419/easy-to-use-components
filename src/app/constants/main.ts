@@ -2,13 +2,13 @@ import Star from "@/app/assets/images/Star.png";
 import Profile from "@/app/assets/images/profile.jpeg";
 
 export interface IHeaderList {
-    home: string[];
+    contact: string[];
     components: string[];
     community: string[];
 }
 
 export const headerList: IHeaderList = {
-    home: [""],
+    contact: [""],
     components: ["Card", "Button", "Accordion", "Footer", "Header", "Menu", "ETC", "Input", "Login"],
     community: [""]
 };
@@ -35,4 +35,10 @@ export const projectSection = {
         `,
         button: "Demo"
     },
+}
+
+export const contact = {
+    instagram: "jgy_98",
+    github: "https://github.com/jgy4419",
+    email: "jgy_98@naver.com"
 }

@@ -3,6 +3,7 @@ import React from 'react';
 import styled from "styled-components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEarthAmericas, faIdCard, faTabletScreenButton, faBars, faStar,IconDefinition, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 interface IIconProps {
     width: number,
@@ -17,7 +18,9 @@ const iconMap: { [key: string]: IconDefinition } = {
     'faTabletScreenButton': faTabletScreenButton,
     'faBars': faBars,
     'faStar': faStar,
-    'faMagnifyingGlass': faMagnifyingGlass
+    'faMagnifyingGlass': faMagnifyingGlass,
+    'faGithub': faGithub,
+    'faInstagram': faInstagram
 };
 
 const IconBox = ({ width, height, iconName }: IIconProps) => {
