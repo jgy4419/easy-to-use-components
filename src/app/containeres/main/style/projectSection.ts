@@ -134,7 +134,7 @@ export const Container = styled.div`
             margin: auto;
         }
         ${Img} {
-            top: 5ㅋpx;
+            top: 5px;
         }
         ${ImgButtons} {
             top: 50px;
