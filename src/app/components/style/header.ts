@@ -28,7 +28,7 @@ export const MenuButton = styled.span`
     cursor: pointer;
 `;
 
-export const MenuUl = styled.ul<{menuulliststate: string | undefined}>`
+export const MenuUl = styled.ul`
     display: flex;
 `;
 

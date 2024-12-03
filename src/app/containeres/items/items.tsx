@@ -7,7 +7,7 @@ import ErrorBoundary from "@/app/containeres/Error/ErrorBoundary";
 import NoItems from "@/app/containeres/Error/NoItems";
 import CategoryList from '@/app/components/categoryList';
 import { apiGet } from '@/app/util/apiModule';
-import Loading from '@/app/components/Loading';
+import Loading from "@/app/components/Loading";
 import Search from '../community/search';
 
 const Items = () => {

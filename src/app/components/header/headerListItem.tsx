@@ -24,17 +24,6 @@ const HeaderListItem = ({ itemList, itemState }: IHeaderListItemProps) => {
 
     return (
         <>
-            <S.MenuDetailUl>
-            {
-                itemList.map((item: string, index: number) => {
-                    return (
-                        <Link href={`/${item}`} key={index}>
-                            <S.MenuDetailLi>{item}</S.MenuDetailLi>
-                        </Link>
-                    )
-                })
-            }
-            </S.MenuDetailUl>
         </>
     )
 };

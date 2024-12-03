@@ -7,7 +7,7 @@ import EditorContent from "@/app/containeres/itemEditor/editorContent";
 import { RootState } from "@/store/rootReducer";
 import { useSelector, useDispatch } from "react-redux";
 import {codeStateChange} from "@/store/editor";
-import Loading from '@/app/components/Loading';
+import Loading from "@/app/components/Loading";
 
 const Content = ({ data }: { data: any }) => {
     const dispatch = useDispatch();

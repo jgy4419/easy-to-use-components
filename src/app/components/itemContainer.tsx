@@ -9,8 +9,9 @@ import { IItemContainerObj } from './types/type';
 
 
 const ItemContainer = ({ obj }: {obj : IItemContainerObj}) => {
-    const param = usePathname();
-    const imageSrc = `/image/${String(obj.category).toLowerCase()}/${obj.imgName}.png`;
+    const param = usePathname(),
+        imageSrc = `/image/${String(obj.category).toLowerCase()}/${obj.imgName}.png`,
+        sliceParam = param.split("/").slice(0, -1).join("/");
 
     console.log("param.split('/')[1]", param);
     
