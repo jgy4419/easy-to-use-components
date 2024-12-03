@@ -35,7 +35,7 @@ const Container = styled.main`
 const Inner = styled.div`
 `;
 
-export const CreatePost = styled.div`
+const CreatePost = styled.div`
     position: absolute;
     z-index: 9999;
     left: 15%;
