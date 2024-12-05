@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import * as S from "./style/itemContainer";
 import Image from "next/image";
 import NonStar from "@/app/assets/images/NonStar.png";
@@ -11,12 +11,23 @@ import { IItemContainerObj } from './types/type';
 const ItemContainer = ({ obj }: {obj : IItemContainerObj}) => {
     const param = usePathname(),
         imageSrc = `/image/${String(obj.category).toLowerCase()}/${obj.imgName}.png`,
-        sliceParam = param.split("/").slice(0, -1).join("/");
+        [changedPath, setChangedPath] = useState("");
 
-    console.log("param.split('/')[1]", param);
+    useEffect(() => {
+        pathChangedFunc();
+    }, []);
+
+    const pathChangedFunc = () => {
+        if(param.split("/").length !== 3) {
+            let updatedPath = param.replace(/\/[^/]+$/, "");
+            setChangedPath(updatedPath.replace(/\/[^/]+$/, "/All"));
+        } else {
+            setChangedPath(param);
+        }
+    }
     
     return (
-        <Link href={`${param}/${obj.imgName}`}>
+        <Link href={`${changedPath}/${obj.imgName}`}>
             <S.Container>
                 <Image className='itemImage' src={imageSrc} alt="이미지" width={300} height={150}/>
                 <S.HoverContainer>
