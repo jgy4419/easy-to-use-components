@@ -14,7 +14,9 @@ const MainSection = () => {
                     <S.Description> { mainContent.description } </S.Description>
                     <S.ScrollButton>Scroll Down!</S.ScrollButton>
                 </S.Content>
-                <Image className='logoImg' src={profile} alt="프로필 이미지" width={200} height={200}/>
+                <S.ImgBox>
+                    <Image className='logoImg' src={profile} alt="프로필 이미지"/>
+                </S.ImgBox>
             </S.Inner>
         </div>
     );

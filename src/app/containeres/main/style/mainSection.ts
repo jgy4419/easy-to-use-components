@@ -26,14 +26,23 @@ export const Content = styled.div`
 `;
 
 export const Title = styled.h1`
-    font-size: 60px;
+    font-size: 50px;
     animation: ${contentLoad} .5s;
+    @media (max-width: 700px) {
+        font-size: 35px;
+    }
 `;
 
 export const SubTitle = styled.h3`
     font-size: 30px;
     color: #e3e3e3;
     animation: ${contentLoad} .7s;
+    @media (max-width: 1200px) {
+        width: 100%;            
+    }
+    @media (max-width: 700px) {
+        font-size: 20px;
+    }
 `;
 
 export const Description = styled.p`
@@ -42,10 +51,15 @@ export const Description = styled.p`
     width: 70%;
     animation: ${contentLoad} 1s;
     line-height: 1.5;
+    @media (max-width: 1200px) {
+        width: 100%;
+    }
+    @media (max-width: 700px) {
+        font-size: 16px;
+    }
 `;
 
 export const Button = styled.button`
-    //border-radius: 10px;
     width: 200px;
     height: 80px;
     font-size: 20px;
@@ -66,11 +80,19 @@ export const Button = styled.button`
     &:active {
         background-color: #1b6ca2;
     }
+    @media (max-width: 1200px) {
+        margin: auto;
+    }
 `;
 
 export const ScrollButton = styled(Button)`
     margin-top: 30px;
     animation: ${upDownMove} 1s ease-in-out infinite;
+    @media (max-width: 700px) {
+        width: 150px;
+        height: 60px;
+        font-size: 14px;
+    }
 `;
 
 export const Inner = styled.div`
@@ -86,18 +108,21 @@ export const Inner = styled.div`
         flex-direction: column-reverse;
         justify-content: center;
         text-align: center;
-        ${Title} {
-            font-size: 50px;
-        }
-        ${SubTitle} {
-            font-size: 30px;
-        }
-        ${Description} {
-            width: 100%;
-            font-size: 20px;
-        }
-        ${Button} {
-            margin: auto;
-        }
+    }
+`;
+
+export const ImgBox = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    @media (max-width: 700px) {
+        width: 150px;
+        height: 150px;
+    }
+    > img {
+        width: 100%;
+        height: 100%;
     }
 `;

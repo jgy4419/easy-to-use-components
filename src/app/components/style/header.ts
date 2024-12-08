@@ -45,4 +45,10 @@ export const MenuLi = styled.li`
         color: #407da5;
         opacity: 1;
     }
+    @media (max-width: 700px) {
+        font-size: 12px;
+    }
+    @media (max-width: 400px) {
+        font-size: 10px;
+    }
 `;
