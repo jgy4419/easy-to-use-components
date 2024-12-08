@@ -31,6 +31,9 @@ const Inner = styled.div`
     align-items: center;
     justify-content: center;
     gap: 10px;
+    @media (max-width: 700px) {
+        font-size: 12px;
+    }
 `;
 
 export default Footer;

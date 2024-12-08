@@ -11,6 +11,9 @@ export const ImgContent = styled.div`
 
 export const ImgTitle = styled.h1`
     font-size: 40px;
+    @media (max-width: 700px) {
+            font-size: 35px;
+    }
 `;
 
 export const ImgZip = styled.div`
@@ -56,6 +59,11 @@ export const Content = styled.div`
 `;
 
 export const Title = styled.h1`
+    @media (max-width: 700px) {
+        display: flex;
+        justify-content: center;
+        font-size: 25px;
+    }
 `;
 
 export const Description = styled.p`
@@ -63,6 +71,13 @@ export const Description = styled.p`
     font-size: 18px;
     line-height: 2;
     color: grey;
+    @media (max-width: 1200px) {
+        width: 100%;
+    }
+    @media (max-width: 700px) {
+        font-size: 10px;
+            
+    }
 `;
 
 export const Button = styled.button`
@@ -79,13 +94,19 @@ export const Button = styled.button`
     align-items: center;
     justify-content: center;
     gap: 5px;
-
+        
     &:hover {
         border: 3px solid #1b6ca2;
     }
 
     &:active {
         background-color: #1b6ca2;
+    }
+    @media(max-width: 700px) {
+        
+        width: 100px;
+        height: 40px;
+        font-size: 12px;
     }
 `;
 
@@ -125,10 +146,6 @@ export const Container = styled.div`
         ${Content} {
             text-align: center;
             margin-top: 50px;
-        }
-        ${Description} {
-            width: 100%;
-            font-size: 15px;
         }
         ${Button} {
             margin: auto;
