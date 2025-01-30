@@ -6,7 +6,7 @@ export const HoverContainer = styled.div`
     border-radius: 10px;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    //background: rgba(0, 0, 0, 0.5);
     transition: .5s;
     transform: translateY(100%);
 `;
@@ -21,9 +21,9 @@ export const HoverInner = styled.div`
 
 export const Button = styled.button`
     cursor: pointer;
-    border: 2px solid #fff;
+    border: 2px solid #eee;
     border-radius: 5px;
-    color: #fff;
+    color: #eee;
     font-size: 20px;
     background: transparent;
     width: 150px;
@@ -34,7 +34,7 @@ export const Button = styled.button`
 export const Container = styled.div`
     position: relative;
     max-width: 500px;
-    background-color: rgb(15,18,20);
+    background-color: #fff;
     overflow: hidden;
     border-radius: 10px;
     margin-top: 50px;

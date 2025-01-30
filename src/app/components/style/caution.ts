@@ -5,7 +5,7 @@ export const Container = styled.section`
     width: 70%;
     max-width: 1200px;
     height: 250px;
-    background-color: #0F1214;
+    //background-color: #0F1214;
     margin: 50px auto;
     border-radius: 20px;
 `;
@@ -40,7 +40,7 @@ export const Caution = styled.li`
     width: 30%;
     text-align: center;
     font-size: 12px;
-    background-color: #333;
+    background-color: #fff;
     box-sizing: border-box;
     border-radius: 10px;
     display: flex;

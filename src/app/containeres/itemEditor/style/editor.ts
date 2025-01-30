@@ -46,7 +46,7 @@ export const Star = styled.div`
     align-items: center;
     justify-content: space-around;
     width: 100px;
-    padding: 10px 0px;
+    padding: 10px 0;
     background-color: #fff;
     border-radius: 20px;
     color: #333;

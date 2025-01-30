@@ -10,6 +10,7 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    //border: 2px solid #333;
 `;
 
 export const Inner = styled.div`
@@ -22,13 +23,15 @@ export const Inner = styled.div`
 
 export const Tabs = styled.div`
     display: flex;
+    gap: 10px;
 `;
 
 export const Tab = styled.button`
     padding: 10px;
-    background: transparent;
+    background: var(--button-color);
     color: #fff;
     border: 2px solid transparent;
+    border-radius: 10px;
     transition: .3s;
     &:hover {
         border: 2px solid #1b6ca2;
@@ -38,9 +41,12 @@ export const Tab = styled.button`
 export const Code = styled.pre`
     position: relative;
     overflow: scroll;
-    margin: auto;
+    //margin: auto;
     font-size: 12px !important;
-    background-color: transparent !important;
+    margin-top: 20px !important;
+    background-color: #eee !important;
+    padding: 10px;
+    border-radius: 20px;
 `;
 
 export const CopyButton = styled.button`

@@ -8,14 +8,13 @@ export interface IHeaderList {
 }
 
 export const headerList: IHeaderList = {
-    contact: [""],
     components: ["Card", "Button", "Accordion", "Footer", "Header", "Menu", "ETC", "Input", "Login"],
     community: [""]
 };
 
 export const mainContent = {
-    title: "Hi, I'm Jgy",
-    subTitle: "Frontend Developer",
+    title: "다양한 종류의 컴포넌들을 쉽게 만들어보세요!",
+    subTitle: "무료!! 로 만들어보세요",
     description: "I provide people with a UI that they can easily create."
 }
 

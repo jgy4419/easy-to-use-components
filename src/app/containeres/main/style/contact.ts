@@ -4,8 +4,6 @@ const Input = styled.input`
     resize: none;
     padding: 20px 10px;
     border: 0;
-    color: #fff;
-    background-color: rgb(15,18,20) !important;
     font-size: 12px;
     width: 100%;
     max-width: 500px;
@@ -16,18 +14,11 @@ const TextArea = styled.textarea`
     padding: 10px;
     height: 150px;
     border: 0;
-    color: #fff;
-    background-color: rgb(15,18,20) !important;
+    //color: #fff;
+    //background-color: rgb(15,18,20) !important;
     font-size: 12px;
     width: 100%;
     max-width: 500px;
-`;
-
-export const Container = styled.div`
-    position: relative;
-    display: flex;
-    width: 100vw;
-    height: 100%;
 `;
 
 export const Inner = styled.div`
@@ -37,7 +28,7 @@ export const Inner = styled.div`
 `;
 
 export const Title = styled.h2`
-    
+    color: var(--main-font-color);
 `;
 
 export const Description = styled.p`
@@ -50,7 +41,7 @@ export const GithubUrl = styled.span`
     align-items: center;
 `;
 
-export const InstamUrl = styled.span`
+export const InstaUrl = styled.span`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,11 +56,9 @@ export const ContactForm = styled.div`
 `;
 
 export const NameInput = styled(Input)`
-    background-color: black;
 `;
 
 export const TitleInput = styled(Input)`
-    background-color: black;
 `;
 
 export const MessageArea = styled(TextArea)`
@@ -80,4 +69,29 @@ export const SendButton = styled.button`
     height: 50px;
     width: 100%;
     max-width: 500px;
+`;
+
+export const Container = styled.section`
+    position: relative;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    @media (max-width: 1200px) {
+        ${Title} {
+            font-size: 20px;
+        }
+        ${Description} {
+            font-size: 12px;
+        }
+        ${GithubUrl}, ${InstaUrl} {
+            font-size: 14px;
+        }
+        input, textarea {
+            font-size: 10px;
+        }
+        ${SendButton} {
+            font-size: 12px;
+            height: 45px;
+        }
+    }
 `;

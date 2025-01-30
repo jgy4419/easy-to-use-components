@@ -8,7 +8,7 @@ const ItemsContain = () => {
     return (
         <Container>
             <Inner>
-                <Items />            
+                <Items />
             </Inner>
         </Container>
     );
@@ -17,7 +17,8 @@ const ItemsContain = () => {
 const Container = styled.div`
     position: relative;
     width: 100vw;
-    height: calc(100% - 80px);
+    height: 100vh;
+    //height: calc(100% - 80px);
     overflow: scroll;
     margin: auto;
 `;

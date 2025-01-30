@@ -17,10 +17,12 @@ const Container = styled.footer`
     position: relative;
     text-align: center;
     width: 100vw;
-    height: 80px;
-    background-color: rgb(15,18,20);
+    height: 120px;
+    background-image: url("/image/components/main/footerBackground.svg");
     font-size: 16px;
     font-weight: 700;
+    color: #fff;
+    //margin-top: 100px;
 `;
 
 const Inner = styled.div`

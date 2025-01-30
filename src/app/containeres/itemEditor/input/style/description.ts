@@ -7,12 +7,12 @@ export const Description = styled.textarea`
     padding: 20px;
     margin-top: 20px;
     box-sizing: border-box;
-    background-color: rgb(15,18,20);
-    border: 5px solid rgb(15,18,20);
+    //background-color: rgb(15,18,20);
+    border: 1px solid rgb(15,18,20);
     border-radius: 10px;
-    color: #eee;
+    color: var(--main-font-color);
     resize: none;
     &:focus {
-        border: 5px solid #1b6ca2;
+        border: 1px solid var(--button-color);
     }
 `;

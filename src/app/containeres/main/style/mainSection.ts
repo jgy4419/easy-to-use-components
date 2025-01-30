@@ -11,7 +11,7 @@ const contentLoad = keyframes`
 
 const upDownMove = keyframes`
     0% {
-        transform: translateY(0%);            
+        transform: translateY(0%);
     }
     50% {
         transform: translateY(20%);
@@ -21,77 +21,87 @@ const upDownMove = keyframes`
     }
 `;
 
+export const Container = styled.section`
+    margin-top: 20%;
+    height: auto;
+`;
+
 export const Content = styled.div`
     line-height: 1;
 `;
 
 export const Title = styled.h1`
-    font-size: 50px;
+    font-size: 30px;
+    width: 60%;
     animation: ${contentLoad} .5s;
+    color: var(--main-font-color);
+    line-height: 1.2;
+    margin-top: -20%;
     @media (max-width: 700px) {
         font-size: 35px;
     }
 `;
 
-export const SubTitle = styled.h3`
-    font-size: 30px;
-    color: #e3e3e3;
+export const SubTitle = styled.p`
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--sub-font-color);
     animation: ${contentLoad} .7s;
     @media (max-width: 1200px) {
-        width: 100%;            
+        width: 100%;
     }
     @media (max-width: 700px) {
         font-size: 20px;
     }
 `;
 
-export const Description = styled.p`
-    font-size: 20px;
-    color: grey;
+export const MainDemoContainer = styled.div`
+    position: relative;
     width: 70%;
-    animation: ${contentLoad} 1s;
-    line-height: 1.5;
-    @media (max-width: 1200px) {
-        width: 100%;
-    }
-    @media (max-width: 700px) {
-        font-size: 16px;
-    }
+    max-width: 400px;
+    margin-top: 25%;
 `;
 
-export const Button = styled.button`
-    width: 200px;
-    height: 80px;
-    font-size: 20px;
-    border: 5px solid #0F1214;
-    border-radius: 20px;
-    background-color: rgb(15,18,20);
-    color: #fff;
-    cursor: pointer;
-    transition: .2s;
-    animation: ${contentLoad} 1s;
+export const MainDemoBox = styled.div`
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    gap: 5px;
-    &:hover {
-        border: 3px solid #1b6ca2;
-    }
-    &:active {
-        background-color: #1b6ca2;
-    }
-    @media (max-width: 1200px) {
-        margin: auto;
-    }
+    height: 200px;
+    box-shadow: var(--shadow-value);
+    padding: 20px;
+    border-radius: 20px;
 `;
 
-export const ScrollButton = styled(Button)`
-    margin-top: 30px;
-    animation: ${upDownMove} 1s ease-in-out infinite;
-    @media (max-width: 700px) {
-        width: 150px;
-        height: 60px;
-        font-size: 14px;
+export const MainDemoList = styled.ul`
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+`;
+
+export const MainDemoItem = styled.li`
+    width: 50px;
+    height: 50px;
+    background: #eee;
+    border-radius: 10px;
+`;
+
+export const MainDemoText = styled.p`
+    text-align: center;
+    color: var(--sub-font-color);
+`;
+
+export const MainDemoButton = styled.button`
+    width: 120px;
+    margin: 0 auto 20px auto;
+    height: 40px;
+    border: 0;
+    background: var(--button-color);
+    color: #fff;
+    border-radius: 20px;
+    transition: .3s;
+    &:active {
+        background-color: var(--button-active-color);
+        //color: 
     }
 `;
 
@@ -105,24 +115,39 @@ export const Inner = styled.div`
     justify-content: space-between;
     align-items: center;
     @media (max-width: 1200px) {
-        flex-direction: column-reverse;
+        flex-direction: column;
         justify-content: center;
         text-align: center;
-    }
-`;
+        //margin-top: 30%;
+        //margin: auto;
+        ${Title} {
+            font-size: 20px;
+            width: 80%;
+            margin: auto;
+        }
+        ${SubTitle} {
+            font-size: 12px;
+        }
+        ${MainDemoContainer} {
+            margin-top: 5%;
+            width: 500px;
+        }
+        ${MainDemoBox} {
+            height: 180px;
+        }
+        ${MainDemoText} {
+            font-size: 12px;
+        }
+        ${MainDemoButton} {
+            font-size: 12px;
+            height: 30px;
+        }
 
-export const ImgBox = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 200px;
-    height: 200px;
-    @media (max-width: 700px) {
-        width: 150px;
-        height: 150px;
-    }
-    > img {
-        width: 100%;
-        height: 100%;
+        @media (max-width: 1100px) {
+            margin-top: 10%;
+        }
+        @media (max-width: 800px) {
+            margin-top: 30%;
+        }
     }
 `;

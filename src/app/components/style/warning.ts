@@ -2,10 +2,8 @@ import styled from "styled-components";
 
 export const WarningDetail = styled.div`
     position: absolute;
-    display: flex;
     top: -20px;
-    align-item: center;
-    background-color: #333;
+    background-color: var(--sub-font-color);
     padding: 10px;
     width: 200px;
     color: #fff;
@@ -20,7 +18,7 @@ export const WarningIcon = styled.div`
     position: absolute;
     left: 5px;
     width: 25px; height: 25px;
-    background-color: #333;
+    background-color: var(--sub-font-color);
     border-radius: 50%;
     color: #333;
     &:before {

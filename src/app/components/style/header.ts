@@ -5,8 +5,9 @@ export const Container = styled.header`
     display: flex;
     width: 100vw;
     height: 80px;
-    background-color: rgb(15, 18, 20);
+    background: var(--background-color);
     box-sizing: border-box;
+    border-bottom: 2px solid var(--line-color);
 `;
 
 export const Inner = styled.div`
@@ -35,6 +36,7 @@ export const MenuUl = styled.ul`
 export const MenuLi = styled.li`
     position: relative;
     text-align: center;
+    color: var(--main-font-color);
     border-radius: 20px;
     font-size: 16px;
     cursor: pointer;
