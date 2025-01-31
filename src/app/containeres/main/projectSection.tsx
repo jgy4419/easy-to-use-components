@@ -11,7 +11,7 @@ const ProjectSection = () => {
     const stepButtons = useRef<HTMLUListElement>(null);
     const stepPreView = useRef<HTMLImageElement>(null);
 
-    const color = ["#eee", "red", "blue"]
+    const images = ["/image/components/main/preview.png", "/image/components/main/edit.png", "/image/components/main/code.png"]
 
     let [beforeIndex, setBeforeIndex] = useState(0);
 
@@ -23,7 +23,7 @@ const ProjectSection = () => {
             (buttons.children[beforeIndex] as HTMLElement).style.background = "none";
             (buttons.children[selectIndex] as HTMLElement).style.background = "#eee";
 
-            preview.style.background = color[selectIndex];
+            preview.style.backgroundImage = `url("${images[selectIndex]}")`;
             // preview.style.backgroundImage = "url()";
         }
 

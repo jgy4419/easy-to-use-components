@@ -44,7 +44,7 @@ export const Code = styled.pre`
     //margin: auto;
     font-size: 12px !important;
     margin-top: 20px !important;
-    background-color: #eee !important;
+    background-color: #444 !important;
     padding: 10px;
     border-radius: 20px;
 `;

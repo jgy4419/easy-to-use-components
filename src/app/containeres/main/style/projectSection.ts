@@ -34,6 +34,7 @@ export const StepPreView = styled.div`
     height: 300px;
     border-radius: 20px;
     box-shadow: var(--shadow-value);
+    background-size: cover;
     border: 0;
     transition: .3s;
 `;
