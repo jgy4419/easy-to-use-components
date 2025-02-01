@@ -75,7 +75,7 @@ export const Container = styled.section`
     position: relative;
     display: flex;
     width: 100vw;
-    height: 100vh;
+    height: 800px;
     @media (max-width: 1200px) {
         ${Title} {
             font-size: 20px;

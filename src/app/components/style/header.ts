@@ -11,8 +11,7 @@ export const Container = styled.header`
 `;
 
 export const Inner = styled.div`
-    width: 70%;
-    max-width: 1200px;
+    width: 60%;
     display: flex;
     gap: 30px;
     align-items: center;

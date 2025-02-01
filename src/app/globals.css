@@ -21,13 +21,13 @@
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
   font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
 }
 
 .container {
   position: relative;
   width: 100vw;
+  /*min-height: calc(100vh - 120px);*/
   /*height: calc(100vh - 80px);*/
   /*height: auto;*/
   /*max-height: 100vh;*/

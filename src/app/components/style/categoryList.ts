@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ComponentCategoryList = styled.ul`
     width: 100%;
     max-width: 1200px;
-    margin: 50px auto;
+    margin: 5% auto;
     display: flex;
     justify-content: space-around;
 `;

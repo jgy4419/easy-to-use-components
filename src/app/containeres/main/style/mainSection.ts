@@ -21,9 +21,13 @@ const upDownMove = keyframes`
     }
 `;
 
-export const Container = styled.section`
-    margin-top: 20%;
-    height: auto;
+export const Container = styled.div`
+    position: relative;
+    margin: auto;
+    max-width: 80%;
+    height: 600px;
+    //min-height: 500px;
+    max-height: 800px;
 `;
 
 export const Content = styled.div`
@@ -55,6 +59,14 @@ export const SubTitle = styled.p`
     }
 `;
 
+export const BackColorText = styled.span`
+    background-image: url("/image/components/main/backgroundText.png");
+    background-size: cover;
+    background-position-x: -1px;
+    background-repeat: no-repeat;
+    padding: 2px;
+`;
+
 export const MainDemoContainer = styled.div`
     position: relative;
     width: 70%;
@@ -78,11 +90,12 @@ export const MainDemoList = styled.ul`
     gap: 10px;
 `;
 
-export const MainDemoItem = styled.li`
+export const MainDemoItem = styled.li< { img: string }>`
+    background-image: url("${props => props.img}");
     width: 50px;
     height: 50px;
-    background: #eee;
     border-radius: 10px;
+    cursor: pointer;
 `;
 
 export const MainDemoText = styled.p`
@@ -106,10 +119,8 @@ export const MainDemoButton = styled.button`
 `;
 
 export const Inner = styled.div`
-    position: absolute;
     width: 70%;
-    max-width: 1000px;
-    inset: 0;
+    height: 100%;
     margin: auto;
     display: flex;
     justify-content: space-between;
@@ -141,13 +152,6 @@ export const Inner = styled.div`
         ${MainDemoButton} {
             font-size: 12px;
             height: 30px;
-        }
-
-        @media (max-width: 1100px) {
-            margin-top: 10%;
-        }
-        @media (max-width: 800px) {
-            margin-top: 30%;
         }
     }
 `;

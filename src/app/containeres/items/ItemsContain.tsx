@@ -6,7 +6,7 @@ import Items from './items';
 
 const ItemsContain = () => {
     return (
-        <Container>
+        <Container className="container">
             <Inner>
                 <Items />
             </Inner>
@@ -17,16 +17,12 @@ const ItemsContain = () => {
 const Container = styled.div`
     position: relative;
     width: 100vw;
-    height: 100vh;
-    //height: calc(100% - 80px);
-    overflow: scroll;
+    height: auto;
     margin: auto;
 `;
 
 const Inner = styled.div`
-    position: absolute;
     width: 70%;
-    inset: 0;
     margin: auto;
     display: flex;
     justify-content: center;

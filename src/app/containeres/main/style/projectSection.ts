@@ -36,7 +36,7 @@ export const StepPreView = styled.div`
     box-shadow: var(--shadow-value);
     background-size: cover;
     border: 0;
-    transition: .3s;
+    transition: .3s ease-in-out;
 `;
 
 export const SampleMoreButton = styled.p`
@@ -47,9 +47,12 @@ export const SampleMoreButton = styled.p`
 export const Container = styled.section`
     position: relative;
     width: var(--desktop-width);
-    margin: 50% auto 0 auto;
+    //min-height: 100vh;
+    margin: 100px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     @media (max-width: 1200px) {
-        margin-top: 100%;
         ${Title} {
             font-size: 20px;
         }

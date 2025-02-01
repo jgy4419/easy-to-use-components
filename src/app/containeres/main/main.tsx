@@ -9,9 +9,9 @@ const Main = () => {
         <>
             <S.Container>
                 <MainSection />
+                <ProjectSection />
+                <Contact />
             </S.Container>
-            <ProjectSection />
-            <Contact />
         </>
     );
 };

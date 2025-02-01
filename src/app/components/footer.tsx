@@ -22,7 +22,6 @@ const Container = styled.footer`
     font-size: 16px;
     font-weight: 700;
     color: #fff;
-    //margin-top: 100px;
 `;
 
 const Inner = styled.div`

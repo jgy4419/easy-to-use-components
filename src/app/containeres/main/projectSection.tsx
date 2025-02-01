@@ -1,9 +1,7 @@
 'use client';
 import React, {useEffect, useRef, useState} from 'react';
 import * as S from "./style/projectSection";
-import Image from "next/image";
-import {projectSection} from "@/app/constants/main";
-import {useRouter} from "next/navigation";
+import { stepImages } from "@/app/constants/main";
 
 // 컴포넌트 분리하기
 const ProjectSection = () => {
@@ -11,20 +9,16 @@ const ProjectSection = () => {
     const stepButtons = useRef<HTMLUListElement>(null);
     const stepPreView = useRef<HTMLImageElement>(null);
 
-    const images = ["/image/components/main/preview.png", "/image/components/main/edit.png", "/image/components/main/code.png"]
-
     let [beforeIndex, setBeforeIndex] = useState(0);
 
     const stepChangeHandle = (selectIndex: number) => {
         const [buttons, preview] = [stepButtons.current, stepPreView.current];
 
         if(buttons && preview) {
-            console.log(beforeIndex, selectIndex);
             (buttons.children[beforeIndex] as HTMLElement).style.background = "none";
             (buttons.children[selectIndex] as HTMLElement).style.background = "#eee";
 
-            preview.style.backgroundImage = `url("${images[selectIndex]}")`;
-            // preview.style.backgroundImage = "url()";
+            preview.style.backgroundImage = `url("${stepImages[selectIndex]}")`;
         }
 
         setBeforeIndex(selectIndex);
