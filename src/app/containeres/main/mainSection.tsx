@@ -1,8 +1,14 @@
 import React from 'react';
 import * as S from "@/app/containeres/main/style/mainSection";
-import {mainContent, demoImages} from "@/app/constants/main";
+import { mainContent, demoImages } from "@/app/constants/main";
+import { useRouter } from "next/navigation";
 
 const MainSection = () => {
+    const router = useRouter();
+
+    const moveRoute = (url: string) => {
+        router.push(url);
+    }
 
     return (
         <S.Container>
@@ -17,13 +23,13 @@ const MainSection = () => {
                             {
                                 demoImages.map((item, index) => {
                                     return (
-                                        <S.MainDemoItem img={item} key={index} />
+                                        <S.MainDemoItem onClick={() => moveRoute(item.url)} img={item.imgPath} key={index} />
                                     )
                                 })
                             }
                         </S.MainDemoList>
                         <S.MainDemoText>위의 컴포넌트를 사용해보세요.</S.MainDemoText>
-                        <S.MainDemoButton>All Demo</S.MainDemoButton>
+                        <S.MainDemoButton onClick={() => moveRoute("/component/All")}>All Demo</S.MainDemoButton>
                     </S.MainDemoBox>
                 </S.MainDemoContainer>
             </S.Inner>

@@ -45,6 +45,7 @@ export const Code = styled.pre`
     font-size: 12px !important;
     margin-top: 20px !important;
     background-color: #444 !important;
+    min-height: 410px;
     padding: 10px;
     border-radius: 20px;
 `;
@@ -64,6 +65,6 @@ export const BeforeButton = styled.button`
     right: 0;
     width: 180px;
     height: 60px;
-    border-radius: 0;
+    border-radius: 5px;
     //border-radius: 10px;
 `;

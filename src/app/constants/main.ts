@@ -20,11 +20,21 @@ export const mainContent = {
 
 
 export const demoImages = [
-    "/image/components/main/main_demo1.png",
-    "/image/components/main/main_demo2.png",
-    "/image/components/main/main_demo3.png",
-    "/image/components/main/main_demo4.png"
+    {
+        imgPath: "/image/components/main/main_demo1.png",
+        url: "/component/All/card4"
+    }, {
+        imgPath: "/image/components/main/main_demo2.png",
+        url: "/component/All/card5"
+    }, {
+        imgPath: "/image/components/main/main_demo3.png",
+        url: "/component/All/card7"
+    }, {
+        imgPath: "/image/components/main/main_demo4.png",
+        url: "/component/All/card2"
+    }
 ];
+
 
 
 // main - project section
