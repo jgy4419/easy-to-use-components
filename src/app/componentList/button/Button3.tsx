@@ -1,5 +1,5 @@
 import React from 'react';
-import * as S from './style/button3';
+import * as S from './style/Button3';
 import arrow from "./img/arrow.png";
 import heart from "./img/heart.png";
 import save from "./img/save.png";

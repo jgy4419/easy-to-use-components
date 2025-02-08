@@ -1,5 +1,5 @@
 import React from 'react';
-import * as S from "./style/card4";
+import * as S from "./style/Card4";
 import jgyImg from "../../assets/images/profile.jpeg";
 
 const Card4 = () => {

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import * as S from './style/card6';
+import * as S from './style/Card6';
 
 // Poster Animation
 const Card10 = () => {

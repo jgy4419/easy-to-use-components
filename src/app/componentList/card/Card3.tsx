@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import profile from "@/app/assets/images/profile.jpeg";
-import * as S from "./style/card3";
+import * as S from "./style/Card3";
 
 const Card3 = () => {
     const [content, setContent] = useState({
@@ -26,13 +26,13 @@ const Card3 = () => {
                     </S.ProfileTitleBox>
                     <S.ProfileSkillsBox>
                         <S.SkillBoxTitle>Skills</S.SkillBoxTitle>
-                    {
-                        content.skills.map((skill, index) => {
-                            return (
-                                <S.Skill key={index}>{skill}</S.Skill>
-                            )
-                        })
-                    }
+                        {
+                            content.skills.map((skill, index) => {
+                                return (
+                                    <S.Skill key={index}>{skill}</S.Skill>
+                                )
+                            })
+                        }
                     </S.ProfileSkillsBox>
                 </S.Profile>
             </S.Inner>

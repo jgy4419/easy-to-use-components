@@ -12,10 +12,10 @@ const CategoryList = () => {
         {
             componentCategory.map((obj, index) => {
                 return (
-                    <S.ComponentCategory key={index} onClick={() => router.push("/component/" + obj.name)}>
+                    <S.ComponentCategory key={index} onClick={() => router.push("/uiList/" + obj.name)}>
                         <Icon width={70} height={70} iconName={obj.icon}/>
                         <S.ComponentName>{obj.name}</S.ComponentName>
-                    </S.ComponentCategory>           
+                    </S.ComponentCategory>
                 )
             })
         }

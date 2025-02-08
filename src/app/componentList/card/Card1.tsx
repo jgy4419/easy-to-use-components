@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import * as S from "./style/card1";
+import * as S from "./style/Card1";
 
 const Card1 = () => {
     const [content, setContent] = useState({

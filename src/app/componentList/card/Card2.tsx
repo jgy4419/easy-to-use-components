@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import * as S from './style/card2';
+import * as S from './style/Card2';
 
 const Card2 = () => {
     const [content, useContent] = useState({

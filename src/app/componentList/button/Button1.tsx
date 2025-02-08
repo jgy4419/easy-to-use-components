@@ -1,5 +1,5 @@
 import React from 'react';
-import * as S from "./style/button1"
+import * as S from "./style/Button1"
 
 const Button1 = () => {
     return (

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import * as S from './style/card5';
+import * as S from './style/Card5';
 
 const Card5 = () => {
     const [card7Content, setCard7Content] = useState({

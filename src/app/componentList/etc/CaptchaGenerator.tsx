@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import * as S from './style/captchaGenerator';
+import * as S from './style/CaptchaGenerator';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRotateRight } from '@fortawesome/free-solid-svg-icons';
 
@@ -41,7 +41,7 @@ const CaptchaGenerator = () => {
                         resultColor={captchaGeneratorState === true ? 'skyblue'
                         : 'red'}
                     >{
-                        captchaGeneratorState === true 
+                        captchaGeneratorState === true
                             ? 'Success!'
                             :  'Fail..'
                     }</S.CaptchaGeneratorResult>

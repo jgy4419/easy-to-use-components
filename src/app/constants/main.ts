@@ -8,7 +8,7 @@ export interface IHeaderList {
 }
 
 export const headerList: IHeaderList = {
-    components: ["Card", "Button", "Accordion", "Footer", "Header", "Menu", "ETC", "Input", "Login"],
+    components: ["card", "button", "accordion", "footer", "header", "menu", "etc", "input", "login"],
     community: [""]
 };
 
@@ -22,16 +22,16 @@ export const mainContent = {
 export const demoImages = [
     {
         imgPath: "/image/components/main/main_demo1.png",
-        url: "/component/All/card4"
+        url: "/uiList/All/Card4"
     }, {
         imgPath: "/image/components/main/main_demo2.png",
-        url: "/component/All/card5"
+        url: "/uiList/All/Card5"
     }, {
         imgPath: "/image/components/main/main_demo3.png",
-        url: "/component/All/card7"
+        url: "/uiList/All/Card7"
     }, {
         imgPath: "/image/components/main/main_demo4.png",
-        url: "/component/All/card2"
+        url: "/uiList/All/Card2"
     }
 ];
 

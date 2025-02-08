@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import * as S from './style/button2';
+import * as S from './style/Button2';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse, faUser, faComment } from '@fortawesome/free-solid-svg-icons';
 
