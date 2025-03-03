@@ -1,8 +1,8 @@
 export const componentCategory = [
-    {
-        name: "All",
-        icon: "faEarthAmericas"
-    },
+    // {
+    //     name: "All",
+    //     icon: "faEarthAmericas"
+    // },
     {
         name: "Card",
         icon: "faIdCard"

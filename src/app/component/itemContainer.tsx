@@ -36,10 +36,10 @@ const ItemContainer = ({ obj }: {obj : IItemContainerObj}) => {
                     </S.HoverInner>
                 </S.HoverContainer>
                 <S.Inner>
-                    <S.StarCount>
-                        <Image src={NonStar} width={30} alt="favorite"/>
-                        <S.Count>{obj.star}</S.Count>
-                    </S.StarCount>
+                    {/*<S.StarCount>*/}
+                    {/*    <Image src={NonStar} width={30} alt="favorite"/>*/}
+                    {/*    /!*<S.Count>{obj.star}</S.Count>*!/*/}
+                    {/*</S.StarCount>*/}
                     <S.UploadTime>{obj.date.split('T')[0]}</S.UploadTime>
                     <Warning note={obj.note}/>
                 </S.Inner>

@@ -3,80 +3,88 @@
     "card": [
       {
         "card1": {
+          "category": "Card",
           "jsPath": "/card/Card1.tsx",
           "stylePath": "/card/style/Card1.ts",
-          "imgName": "",
+          "imgName": "card1",
           "titleClass": "MainText",
           "descriptionClass": "SubText",
           "fileClass": "file",
           "date": "2025-02-08",
-          "info": "react + styled-components 를 사용했습니다."
+          "note": "react + styled-components 를 사용했습니다."
         },
         "card2": {
+          "category": "Card",
           "jsPath": "/card/Card2.tsx",
           "stylePath": "/card/style/Card2.ts",
-          "imgName": "",
+          "imgName": "card2",
           "titleClass": "MainTitle",
           "descriptionClass": "Description",
           "fileClass": "file",
           "date": "2025-02-08",
-          "info": "react + styled-components 를 사용했습니다."
+          "note": "react + styled-components 를 사용했습니다."
         },
         "card3": {
+          "category": "Card",
           "jsPath": "/card/Card3.tsx",
           "stylePath": "/card/style/Card3.ts",
-          "imgName": "",
+          "imgName": "card3",
           "titleClass": "Name",
           "descriptionClass": "Description",
           "fileClass": "file",
           "date": "2025-02-08",
-          "info": "react + styled-components 를 사용했습니다."
+          "note": "react + styled-components 를 사용했습니다."
         },
         "card4": {
+          "category": "Card",
           "jsPath": "/card/Card4.tsx",
           "stylePath": "/card/style/Card4.ts",
-          "imgName": "",
+          "imgName": "card4",
           "titleClass": "",
           "descriptionClass": "",
           "fileClass": "file",
           "date": "2025-02-08",
-          "info": "react + styled-components 를 사용했습니다."
+          "note": "react + styled-components 를 사용했습니다."
         },
         "card5": {
+          "category": "Card",
           "jsPath": "/card/Card5.tsx",
           "stylePath": "/card/style/Card5.ts",
-          "imgName": "",
+          "imgName": "card5",
           "titleClass": "Card7ContentTitle",
           "descriptionClass": "Card7ContentDescription",
           "fileClass": "file",
           "date": "2025-02-08",
-          "info": "react + styled-components 를 사용했습니다."
+          "note": "react + styled-components 를 사용했습니다."
         },
         "card6": {
+          "category": "Card",
           "jsPath": "/card/Card6.tsx",
           "stylePath": "/card/style/Card6.ts",
-          "imgName": "",
+          "imgName": "card6",
           "titleClass": "PosterTitle",
           "descriptionClass": "PosterSubTitle",
           "fileClass": "file",
           "date": "2025-02-08",
-          "info": "react + styled-components 를 사용했습니다."
+          "note": "react + styled-components 를 사용했습니다."
         },
         "card7": {
+          "category": "Card",
           "jsPath": "/card/Card7.tsx",
           "stylePath": "/card/style/Card7.ts",
-          "imgName": "",
+          "imgName": "card7",
           "titleClass": "Card9ContentTitle",
           "descriptionClass": "Card9ContentDescription",
           "fileClass": "file",
           "date": "2025-02-08",
-          "info": "react + styled-components 를 사용했습니다."
+          "note": "react + styled-components 를 사용했습니다."
         }
       }
     ],
     "button": [
       {
         "button1": {
+          "category": "Button",
           "jsPath": "/button/Button1.tsx",
           "stylePath": "/button/style/Button1.ts",
           "imgName": "",
@@ -84,9 +92,10 @@
           "descriptionClass": "",
           "fileClass": "",
           "date": "2025-02-08",
-          "info": "react + styled-components 를 사용했습니다."
+          "note": "react + styled-components 를 사용했습니다."
         },
         "button2": {
+          "category": "Button",
           "jsPath": "/button/Button2.tsx",
           "stylePath": "/button/style/Button2.ts",
           "imgName": "",
@@ -94,9 +103,10 @@
           "descriptionClass": "",
           "fileClass": "file",
           "date": "2025-02-08",
-          "info": "react + styled-components 를 사용했습니다."
+          "note": "react + styled-components 를 사용했습니다."
         },
         "button3": {
+          "category": "Button",
           "jsPath": "/button/Button3.tsx",
           "stylePath": "/button/style/Button3.ts",
           "imgName": "",
@@ -104,13 +114,14 @@
           "descriptionClass": "SubText",
           "fileClass": "file",
           "date": "2025-02-08",
-          "info": "react + styled-components 를 사용했습니다."
+          "note": "react + styled-components 를 사용했습니다."
         }
       }
     ],
     "etc": [
       {
         "captchaGenerator": {
+          "category": "Etc",
           "jsPath": "/etc/CaptchaGenerator.tsx",
           "stylePath": "/etc/style/CaptchaGenerator.ts",
           "imgName": "",
@@ -118,7 +129,7 @@
           "descriptionClass": "",
           "fileClass": "",
           "date": "2025-02-08",
-          "info": "react + styled-components 를 사용했습니다."
+          "note": "react + styled-components 를 사용했습니다."
         }
       }
     ],
