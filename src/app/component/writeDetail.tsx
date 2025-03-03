@@ -1,6 +1,6 @@
 "use client";
 import styled from "styled-components";
-import Caution from "@/app/components/caution";
+import Caution from "@/app/component/caution";
 import MessageForm from "@/app/containeres/write/messageForm";
 
 const WriteDetail = () => {

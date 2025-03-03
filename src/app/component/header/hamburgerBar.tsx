@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import * as S from "@/app/components/style/header";
+import * as S from "@/app/component/style/header";
 
 export const HamburgerBar = () => {
     const menuIcon = useRef<HTMLDivElement>(null);

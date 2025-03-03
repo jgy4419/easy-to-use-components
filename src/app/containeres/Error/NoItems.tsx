@@ -1,4 +1,4 @@
-import CategoryList from '@/app/components/categoryList';
+import CategoryList from '@/app/component/categoryList';
 import React from 'react';
 import styled from "styled-components";
 

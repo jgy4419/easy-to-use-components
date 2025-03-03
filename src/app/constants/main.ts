@@ -2,7 +2,7 @@ import Star from "@/app/assets/images/Star.png";
 import Profile from "@/app/assets/images/profile.jpeg";
 
 export interface IHeaderList {
-    contact: string[];
+    contact?: string[];
     components: string[];
     community: string[];
 }

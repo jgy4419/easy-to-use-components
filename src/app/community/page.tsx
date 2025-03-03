@@ -2,12 +2,12 @@
 import styled from "styled-components";
 import Search from "@/app/containeres/community/search";
 import List from "@/app/containeres/community/list";
-import Caution from "@/app/components/caution";
+import Caution from "@/app/component/caution";
 import { useRouter } from "next/navigation";
 
 const Page = () => {
     const router = useRouter();
-    
+
     const postClickHandler = () => {
         router.push("community/write");
     }

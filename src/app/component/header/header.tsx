@@ -24,7 +24,7 @@ const Header = () => {
     const menuLiHandler = (list: string) => {
         list !== "components"
             ? router.push(list === "home" ? "/" : "/" + list)
-            : router.push("/component/All");
+            : router.push("/uiList/All");
         menuState();
     }
 

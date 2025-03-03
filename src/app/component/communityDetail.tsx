@@ -2,7 +2,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import Caution from '@/app/components/caution';
+import Caution from '@/app/component/caution';
 import PostDetail from '@/app/containeres/community/postDetail/postDetail';
 
 const CommunityDetail = () => {

@@ -1,7 +1,6 @@
 import React from 'react';
 import * as S from "./style/contact";
-import IconBox from '@/app/components/iconBox';
-import {InstaUrl} from "./style/contact";
+import IconBox from '@/app/component/iconBox';
 
 const Contact = () => {
     return (
