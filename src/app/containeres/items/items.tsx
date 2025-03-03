@@ -8,23 +8,28 @@ import NoItems from "@/app/containeres/Error/NoItems";
 import CategoryList from '@/app/component/categoryList';
 import { apiGet } from '@/app/util/apiModule';
 import Loading from "@/app/component/Loading";
+import useDataMapping from "@/app/component/hooks/useDataMapping";
 import Search from '../community/search';
 
 const Items = () => {
     const path = usePathname().split("/")[2];
     const [items, setItems] = useState<any[]>([]);
     const [loadingState, setLoadingState] = useState(true);
+    const { getUiListData } = useDataMapping();
 
     const itemListChange = async (path: string) => {
         console.log("path", path);
 
         try {
-            const response = await apiGet(
-                `components/componentList?name="${path}"`,
-                "컴포넌트들을 불러오지 못했습니다."
-            );
+            // const response = await apiGet(
+            //     `components/componentList?name="${path}"`,
+            //     "컴포넌트들을 불러오지 못했습니다."
+            // );
+            //
+            // console.log("response", response)
 
-            setItems(prev => [...prev, ...response]);
+            let response = getUiListData(path);
+            setItems([...response]);
         } catch(err) {
             console.log("에러 발생!", err);
         } finally {
