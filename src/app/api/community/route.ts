@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server';
 import connection from '@/../lib/db'; // 데이터베이스 연결 설정을 가져옵니다.
+import path from "path";
+import fs from "fs";
+
 
 export async function GET(request: Request) {
     const url = new URL(request.url);

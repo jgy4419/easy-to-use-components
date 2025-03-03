@@ -1,4 +1,4 @@
-import CommunityDetail from '@/app/components/communityDetail';
+import CommunityDetail from '@/app/component/communityDetail';
 
 const Page = () => {
     return (

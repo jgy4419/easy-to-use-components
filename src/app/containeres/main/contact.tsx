@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from "./style/contact";
-import IconBox from '@/app/components/iconBox';
+import IconBox from '@/app/component/iconBox';
 
 const Contact = () => {
     return (
@@ -12,10 +12,10 @@ const Contact = () => {
                     <IconBox width={40} height={40} iconName="faGithub"/>
                     <a href='https://github.com/jgy4419'>https://github.com/jgy4419</a>
                 </S.GithubUrl>
-                <S.InstamUrl>
+                <S.InstaUrl>
                     <IconBox width={40} height={40} iconName="faInstagram"/>
                     <a href='https://www.instagram.com/jgy_98'>https://www.instagram.com/jgy_98/</a>
-                </S.InstamUrl>
+                </S.InstaUrl>
                 <S.ContactForm>
                     <S.NameInput placeholder="Name"></S.NameInput>
                     <S.TitleInput placeholder="Title"></S.TitleInput>

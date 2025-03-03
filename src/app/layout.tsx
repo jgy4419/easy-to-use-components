@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "./components/header/header";
-import Footer from "./components/footer";
+import Header from "@/app/component/header/header";
+import Footer from "@/app/component/footer";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "prismjs/themes/prism-tomorrow.css";
-import ClientProvider from "@/app/components/ClientProvider";
+import ClientProvider from "@/app/component/ClientProvider";
 
 config.autoAddCss = false;
 

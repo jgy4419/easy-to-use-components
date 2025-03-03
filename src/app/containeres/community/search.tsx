@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
 import * as S from "./style/search";
 // import { useRouter } from "next/navigation";
-import Icon from '@/app/components/iconBox';
-import useSearch from '@/app/components/hooks/useSearch';
+import Icon from '@/app/component/iconBox';
+import useSearch from '@/app/component/hooks/useSearch';
 
 const Search = ({ state }: {state: string}) => {
     const { searchRes } = useSearch(state);

@@ -1,160 +1,74 @@
 import styled from "styled-components";
 
-export const ImgContent = styled.div`
-    width: 50%;
-    height: 100%;
+export const Inner = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 20px;  
-`;
-
-export const ImgTitle = styled.h1`
-    font-size: 40px;
-    @media (max-width: 700px) {
-            font-size: 35px;
-    }
-`;
-
-export const ImgZip = styled.div`
-    position: relative;
-    display: flex;
     align-items: center;
-    height: 250px;
-`;
-
-export const Img = styled.div<{index: number}>`
-    position: absolute;
-    opacity: 0;
-    transition: .3s;
-    &:nth-child(${props => props.index}) {
-        opacity: 1;
-    }
-`;
-
-export const ImgButtons = styled.div`
-    position: relative;
-    display: flex;
-    gap: 10px;
-`;
-
-export const ImgButton = styled.button<{index: number}>`
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #1b6ca2;
-    border: 4px solid #1b6ca2;
-    transition: .3s;
-    cursor: pointer;
-
-    &:nth-child(${props => props.index}) {
-        border: 4px solid #fff;
-    }
-`;
-
-export const Content = styled.div`
-    width: 50%;
-    display: flex;
-    flex-direction: column;
 `;
 
 export const Title = styled.h1`
-    @media (max-width: 700px) {
-        display: flex;
-        justify-content: center;
-        font-size: 25px;
-    }
+    color: var(--main-font-color);
 `;
 
 export const Description = styled.p`
-    width: 500px;
-    font-size: 18px;
-    line-height: 2;
-    color: grey;
-    @media (max-width: 1200px) {
-        width: 100%;
-    }
-    @media (max-width: 700px) {
-        font-size: 10px;
-            
-    }
+    color: var(--sub-font-color);
 `;
 
-export const Button = styled.button`
-    width: 200px;
-    height: 60px;
-    font-size: 20px;
-    border: 3px solid #0F1214;
-    border-radius: 20px;
-    background-color: rgb(15, 18, 20);
-    color: #fff;
+export const StepButtons = styled.ul`
+    display: flex;
+    gap: 20px;
+`;
+
+export const StepButton = styled.li`
+    color: var(--main-font-color);
     cursor: pointer;
-    transition: .2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-        
-    &:hover {
-        border: 3px solid #1b6ca2;
-    }
-
-    &:active {
-        background-color: #1b6ca2;
-    }
-    @media(max-width: 700px) {
-        
-        width: 100px;
-        height: 40px;
-        font-size: 12px;
-    }
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-size: 12px;
+    transition: .3s;
 `;
 
-export const Inner = styled.div`
-    position: absolute;
-    width: 70%;
-    max-width: 1200px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    margin: auto;
-    inset: 0;
-    @media (max-width: 1200px) {
-        margin-top: 80px;
-        inset: 0;
-        ${ImgContent} {
-            align-items: center;
-        }
-        ${ImgZip} {
-            justify-content: center;
-        }
-    }
+export const StepPreView = styled.div`
+    width: 500px;
+    height: 300px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-value);
+    background-size: cover;
+    border: 0;
+    transition: .3s ease-in-out;
 `;
 
-export const Container = styled.div`
+export const SampleMoreButton = styled.p`
+    color: var(--button-color);
+    cursor: pointer;
+`;
+
+export const Container = styled.section`
     position: relative;
-    width: 100vw;
-    height: 100vh;
-
+    width: var(--desktop-width);
+    //min-height: 100vh;
+    margin: 100px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     @media (max-width: 1200px) {
-        ${Inner} {
-            flex-direction: column;
+        ${Title} {
+            font-size: 20px;
         }
-        ${ImgContent} {
-            height: 40%;
+        ${Description} {
+            font-size: 12px;
         }
-        ${Content} {
-            text-align: center;
-            margin-top: 50px;
+        ${StepButton} {
+            font-size: 10px;
         }
-        ${Button} {
-            margin: auto;
+        ${StepPreView} {
+            width: 350px;
+            height: 200px;
         }
-        ${Img} {
-            top: 5px;
-        }
-        ${ImgButtons} {
-            top: 50px;
+        ${SampleMoreButton} {
+            margin-top: 30px;
+            font-size: 14px;
         }
     }
 `;

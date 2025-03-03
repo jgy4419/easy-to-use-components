@@ -1,4 +1,4 @@
-import WriteDetail from "@/app/components/writeDetail";
+import WriteDetail from "@/app/component/writeDetail";
 
 const Page = () => {
     return (

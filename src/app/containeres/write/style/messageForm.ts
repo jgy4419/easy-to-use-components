@@ -79,7 +79,7 @@ export const TitleInput = styled.input`
     width: 250px;
     padding: 15px;
     top: -10px;
-    background-color: rgb(15,18,20);
+    //background-color: rgb(15,18,20);
     color: #fff;
     border: 0;
     border-radius: 5px;

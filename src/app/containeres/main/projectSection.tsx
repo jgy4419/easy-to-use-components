@@ -1,50 +1,49 @@
 'use client';
-import React, {useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import * as S from "./style/projectSection";
-import Image from "next/image";
-import {projectSection} from "@/app/constants/main";
-import {useRouter} from "next/navigation";
+import { stepImages } from "@/app/constants/main";
 
 // 컴포넌트 분리하기
 const ProjectSection = () => {
-    const {imgContent, content} = projectSection;
-    const [imageButtonIndex, setImageButtonIndex] = useState(1);
-    const route = useRouter();
+    const [selectState, setSelectState] = useState(0);
+    const stepButtons = useRef<HTMLUListElement>(null);
+    const stepPreView = useRef<HTMLImageElement>(null);
+
+    let [beforeIndex, setBeforeIndex] = useState(0);
+
+    const stepChangeHandle = (selectIndex: number) => {
+        const [buttons, preview] = [stepButtons.current, stepPreView.current];
+
+        if(buttons && preview) {
+            (buttons.children[beforeIndex] as HTMLElement).style.background = "none";
+            (buttons.children[selectIndex] as HTMLElement).style.background = "#eee";
+
+            preview.style.backgroundImage = `url("${stepImages[selectIndex]}")`;
+        }
+
+        setBeforeIndex(selectIndex);
+    }
+
+    useEffect(() => {
+        stepChangeHandle(selectState);
+    }, [selectState]);
 
     return (
         <S.Container>
             <S.Inner>
-                <S.ImgContent>
-                    <S.ImgTitle>{imgContent.title}</S.ImgTitle>
-                    <S.ImgZip>
-                        {
-                            imgContent.img.map((img, index) => {
-                                return (
-                                    <S.Img key={index} index={imageButtonIndex}>
-                                        <Image src={img} alt="이미지" width={200}/>
-                                    </S.Img>
-                                )
-                            })
-                        }
-                    </S.ImgZip>
-                    <S.ImgButtons>
+                <S.Title>UI 동작들과 코드를 미리 확인해봐요!</S.Title>
+                <S.Description>값이나 이미지를 변경해서 원하는 모양으로 볼 수 있어요.</S.Description>
+                <S.StepButtons ref={stepButtons}>
                     {
-                        imgContent.img.map((_, index) => {
+                        ["화면", "코드", "설명"].map((text, index) => {
                             return (
-                                <S.ImgButton
-                                    onClick={() => setImageButtonIndex(index + 1)}
-                                    index={imageButtonIndex} key={index}
-                                />
+                                <S.StepButton onClick={() => setSelectState(index)} key={index}>{text}</S.StepButton>
                             )
                         })
                     }
-                    </S.ImgButtons>
-                </S.ImgContent>
-                <S.Content>
-                    <S.Title>{content.title}</S.Title>
-                    <S.Description>{content.description}</S.Description>
-                    <S.Button onClick={() => route.push("/component/All")}>{content.button}</S.Button>
-                </S.Content>
+                </S.StepButtons>
+                <S.StepPreView ref={stepPreView}/>
+                <S.SampleMoreButton>샘플 더 보기</S.SampleMoreButton>
             </S.Inner>
         </S.Container>
     );
