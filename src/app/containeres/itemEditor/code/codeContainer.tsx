@@ -6,19 +6,46 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store/rootReducer";
 import { codeStateChange } from "@/store/editor";
 import 'prismjs/components/prism-jsx.min';
+import useGithubCodeToText from "@/app/component/hooks/useGithubCodeToText";
 
 interface ICodeObj {
     fileName: string,
     code: string
 }
 
-export default function CodeContainer({ data }: any) {
+const CodeContainer = ({ data }: any) => {
     const
         codeElement = useRef<HTMLDivElement>(null),
         dispatch = useDispatch(),
         { codeState } = useSelector((state: RootState) => state.editor),
         [codeObj, setCodeObj] = useState<ICodeObj[]>([]),
-        [tabIdx, setTabIdx] = useState(0);
+        [tabIdx, setTabIdx] = useState(0),
+        { getCode } = useGithubCodeToText();
+
+    // 소스코드 가져오는 함수
+    const fetchCode = async () => {
+        try {
+            const [jsCode, styleCode] = await Promise.all([
+                getCode(data.jsPath),
+                getCode(data.stylePath)
+            ]);
+
+            // TODO : fileName 불러오도록 수정
+            setCodeObj([
+                { fileName: "card1.tsx", code: String(jsCode) },
+                { fileName: "card1.ts", code: String(styleCode) }
+            ]);
+        } catch(error) {
+            console.error("코드 불러오기 실패:", error);
+        }
+    }
+
+    useEffect(() => {
+        fetchCode().then(() => {
+            Prism.highlightAll();
+            addCodeValue();
+        })
+    }, [tabIdx]);
 
     const copyClickHandler = () => {
         const codeElem = codeElement.current;
@@ -44,32 +71,37 @@ export default function CodeContainer({ data }: any) {
         } else {
             return data.componentName + `.${data.language}`;
         }
+        // if(fileType === "script") {
+        //     return data.componentName + `.${data.language}x`;
+        // } else {
+        //     return data.componentName + `.${data.language}`;
+        // }
     }
 
     // db 값 중 jsx,tsx, 값들 배열에 담아주기
     const addCodeValue = () => {
-        Object.keys(data).forEach((item) => {
-            if(/^script|style/.test(item)) {
-                const codeArr = [
-                    {
-                        fileName: fileNameChangeHandler(item),
-                        code: data[item]
-                    }
-                ];
-                setCodeObj(prev => [...prev, ...codeArr]);
-            }
-        });
+        // Object.keys(data).forEach((item) => {
+        //     if(/^script|style/.test(item)) {
+        //         const codeArr = [
+        //             {
+        //                 fileName: fileNameChangeHandler(item),
+        //                 code: data[item]
+        //             }
+        //         ];
+        //         setCodeObj(prev => [...prev, ...codeArr]);
+        //     }
+        // });
     }
 
-    useEffect(() => {
-        Prism.highlightAll();
-        addCodeValue();
-        
-        // unmount 될 때 배열 초기화
-        return () => {
-            setCodeObj([]);
-        }
-    }, [codeObj.length, tabIdx]);
+    // useEffect(() => {
+    //     Prism.highlightAll();
+    //     addCodeValue();
+    //
+    //     // unmount 될 때 배열 초기화
+    //     // return () => {
+    //     //     setCodeObj([]);
+    //     // }
+    // }, [tabIdx]);
 
     const tabChangeHandler = (idx: number) => {
         setTabIdx(idx);
@@ -105,3 +137,6 @@ export default function CodeContainer({ data }: any) {
         </S.Container>
     );
 }
+
+
+export default CodeContainer;

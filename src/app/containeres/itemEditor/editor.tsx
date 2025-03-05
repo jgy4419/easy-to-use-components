@@ -12,6 +12,7 @@ import CodeContainer from "@/app/containeres/itemEditor/code/codeContainer";
 import Content from "./Content";
 import { IEditorData } from "./types/type";
 import Loading from "@/app/component/Loading";
+import useDataMapping from "@/app/component/hooks/useDataMapping";
 
 const Editor = () => {
     const [Component, setComponent] = useState<React.ComponentType>();
@@ -19,6 +20,7 @@ const Editor = () => {
     const param = usePathname();
     const { codeState } = useSelector((state: RootState) => state.editor);
     const dispatch = useDispatch();
+    const { getEditorData } = useDataMapping();
 
     const regex = /[^/]+$/;
     const match = param.match(regex);
@@ -26,23 +28,28 @@ const Editor = () => {
     const componentChange = async () => {
         const componentName = match && match[0];
 
-        const response = await apiGet(`components/component?componentName="${componentName}"`, "컴포넌트를 불러오지 못했습니다.");
+        // const response = await apiGet(`components/component?componentName="${componentName}"`, "컴포넌트를 불러오지 못했습니다.");
 
-        setData((prev: any) => ({...prev, ...response[0]}));
+        if(match) {
+            const routeSplit = String(match.input).split("/");
+            const routeLength = routeSplit.length;
+            const [fileName, category] = [routeSplit[routeLength-1], routeSplit[routeLength-2]];
+            setData((prev: any) => ({...prev, ...getEditorData(category, fileName)}));
+        }
+        // setData((prev: any) => ({...prev, ...response[0]}));
     }
 
     useEffect(() => {
         const loadComponent = async () => {
-            console.log("match!", match && match.input);
-            console.log(data);
-
-            try {
-                const ImportedComponent = dynamic(() => import(`@/app/componentList/${data.category}/${data.componentName}`));
-                setComponent(() => ImportedComponent);
-                // itemFilter();
-            } catch (error) {
-                console.error(`Error loading component`, error);
-                setComponent(() => <div>Error loading component</div>);
+            if(Object.keys(data).length !== 0) {
+                try {
+                    const ImportedComponent = dynamic(() => import(`@/app/componentList${data.jsPath}`));
+                    setComponent(() => ImportedComponent);
+                    // itemFilter();
+                } catch (error) {
+                    console.error(`Error loading component`, error);
+                    // setComponent(() => <div>Error loading component</div>);
+                }
             }
         };
 
