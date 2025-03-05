@@ -5,14 +5,15 @@ import FileEdit from "@/app/containeres/itemEditor/input/fileEdit";
 import DescriptionEdit from "@/app/containeres/itemEditor/input/descriptionEdit";
 
 const EditorContent = ({ componentData }: any) => {
+
     return (
         <S.EditContent>
             <div>
-                {componentData.backImage && <FileEdit name={componentData.backImage} type="file"/>}
+                {componentData.fileClass !== "" && <FileEdit name={componentData.fileClass} type="file"/>}
                 {/* {componentData === "img" && <FileEdit name={classNames.image} type={typeValue}/>} */}
-                {componentData.title && <TextEdit name={componentData.title}/>}
-                {/* {componentData.descripㅈtion !== "" && <TextEdit name={classNames.subTitle}/>} */}
-                {componentData.description && <DescriptionEdit name={componentData.description}/>}
+                {componentData.title !== "" && <TextEdit name={componentData.titleClass}/>}
+                {/* {componentData.description !== "" && <TextEdit name={classNames.subTitle}/>} */}
+                {componentData.description !== "" && <DescriptionEdit name={componentData.descriptionClass}/>}
             </div>
         </S.EditContent>
     );
