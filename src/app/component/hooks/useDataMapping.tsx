@@ -7,10 +7,7 @@ const isUiListData = (value: any): value is uiListData => {
 }
 
 const useDataMapping = () => {
-    const getData = async () => {
-        console.log(componentData);
-    }
-
+    // 선택된 카테고리에 있는 컴포넌트 데이터들을 불러옴
     const getUiListData = (path: string) => {
         const lowerPath = path.toLowerCase();
 
@@ -22,8 +19,23 @@ const useDataMapping = () => {
         }
     }
 
+    // Editor 에서 실제로 보여질 컴포넌트 데이터들 전송
+    const getEditorData = (category: string, fileName: string) => {
+        const dataObjs = getUiListData(category);
+
+        let editorData = {};
+        for(let data of dataObjs) {
+            if((data as { imgName: string }).imgName === fileName) {
+                editorData = data;
+                break;
+            }
+        }
+
+        return editorData;
+    }
+
     return {
-        getData, getUiListData
+        getUiListData, getEditorData
     };
 };
 
