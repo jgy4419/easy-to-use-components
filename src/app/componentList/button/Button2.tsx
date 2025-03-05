@@ -1,3 +1,4 @@
+'use client';
 import React, {useState} from 'react';
 import * as S from './style/Button2';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
