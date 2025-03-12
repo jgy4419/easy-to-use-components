@@ -1,19 +1,19 @@
 'use client';
 import React, { useState } from 'react';
-import * as S from "./style/Card1";
+import './style/Card1.css';
 
 const Card1 = () => {
     const [content, setContent] = useState({
         title: "Some title",
-        description: "some description about this card and it's ourpose."
+        description: "some description about this card and it's purpose."
     });
 
     return (
-        <S.Card1Content>
-            <S.DarkBackGround/>
-            <S.Card1MainText>{content.title}</S.Card1MainText>
-            <S.Card1SubText>{content.description}</S.Card1SubText>
-        </S.Card1Content>
+        <div className="card1-content">
+            <div className="dark-background" />
+            <h1 className="card1-main-text">{content.title}</h1>
+            <p className="card1-sub-text">{content.description}</p>
+        </div>
     );
 };
 

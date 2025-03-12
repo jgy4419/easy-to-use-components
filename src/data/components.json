@@ -7,9 +7,9 @@
           "jsPath": "/card/Card1.tsx",
           "stylePath": "/card/style/Card1.ts",
           "imgName": "card1",
-          "titleClass": "MainText",
-          "descriptionClass": "SubText",
-          "fileClass": "Card1Content",
+          "titleClass": "card1-main-text",
+          "descriptionClass": "card1-sub-text",
+          "fileClass": "card1-content",
           "date": "2025-02-08",
           "note": "react + styled-components 를 사용했습니다."
         },
